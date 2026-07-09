@@ -3,52 +3,414 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Study Tips & Exam Guides Blog — BrightOwlGoods</title>
-  <meta name="description" content="Free study tips and exam-prep guides for nurses, medical coders, social workers and students — how to pass the NCLEX, CPC, ASWB and more." />
-  <link rel="canonical" href="https://ferranbencomo03.github.io/blog/" />
+  <title>BrightOwlGoods — Study Guides, Planners & Gifts</title>
+  <meta name="description" content="BrightOwlGoods is an independent Etsy shop making digital study guides, planners and print-on-demand gifts for nurses, students, teachers, brides and more." />
+  <link rel="canonical" href="https://ferranbencomo03.github.io/" />
+
+  <!-- Pinterest domain verification (ja activa) -->
+  <meta name="p:domain_verify" content="d00e2db1ac6b3728bdf2e80449d1b7ff"/>
+
+  <!-- Social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BrightOwlGoods — Study Guides, Planners & Gifts" />
+  <meta property="og:description" content="Digital study guides, planners and print-on-demand gifts for nurses, students, teachers and more." />
+  <meta property="og:url" content="https://ferranbencomo03.github.io/" />
+  <meta property="og:image" content="https://ferranbencomo03.github.io/logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root{--navy:#1c365c;--teal:#117a72;--cream:#fcfaf4;--ink:#2a2c34;}
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;}
-    .wrap{max-width:760px;margin:0 auto;padding:32px 24px 64px;}
-    nav{font-size:.95rem;margin-bottom:28px;}
-    nav a{color:var(--teal);text-decoration:none;margin-right:16px;}
-    h1{color:var(--navy);font-size:2rem;margin:6px 0 8px;}
-    .lead{color:#5b5b5b;font-size:1.1rem;margin-bottom:28px;}
-    a.card{display:block;background:#fff;border:1px solid #ece8dc;border-radius:14px;padding:20px 22px;margin-bottom:16px;text-decoration:none;color:inherit;}
-    a.card h2{color:var(--navy);font-size:1.25rem;margin-bottom:6px;}
-    a.card p{color:#5b5b5b;font-size:1rem;}
-    footer{text-align:center;color:#8a8a8a;font-size:.9rem;margin-top:40px;}
-    footer a{color:#8a8a8a;}
+    :root{
+      --cream:#f9f4e7;
+      --paper:#ffffff;
+      --navy:#17304d;
+      --navy-deep:#0d1d31;
+      --teal:#0e6f64;
+      --teal-soft:#e3efec;
+      --gold:#c1892e;
+      --gold-soft:#f6e9d2;
+      --ink:#262a33;
+      --ink-soft:#5b6170;
+      --line:#e8ddc2;
+      --shadow: rgba(23,48,77,.10);
+      --radius:16px;
+      --wrap:1180px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --cream:#0f1a28;
+        --paper:#16243780;
+        --paper:#182838;
+        --navy:#f2ecdc;
+        --navy-deep:#f2ecdc;
+        --teal:#3fd9c7;
+        --teal-soft:#152f2c;
+        --gold:#e7b65e;
+        --gold-soft:#2c2415;
+        --ink:#dfe2e8;
+        --ink-soft:#a7adba;
+        --line:#2a3849;
+        --shadow: rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0; background:var(--cream); color:var(--ink);
+      font-family:'Libre Franklin',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.65; -webkit-font-smoothing:antialiased;
+    }
+    img{max-width:100%; display:block;}
+    a{color:var(--teal);}
+    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 24px;}
+    .eyebrow{
+      font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--gold); margin:0 0 10px;
+    }
+    h1,h2,h3{
+      font-family:'Fraunces', Georgia, serif; color:var(--navy); font-weight:600;
+      line-height:1.12; text-wrap:balance; margin:0 0 14px;
+    }
+    h1{font-size:clamp(2.1rem, 1.3rem + 3vw, 3.3rem); font-weight:600;}
+    h2{font-size:clamp(1.55rem, 1.2rem + 1.4vw, 2.1rem);}
+    h3{font-size:1.15rem; font-weight:700; margin-bottom:8px;}
+    p{margin:0 0 14px; color:var(--ink-soft); max-width:60ch;}
+    section{padding:64px 0;}
+    .section-head{max-width:640px; margin:0 auto 40px;}
+    .section-head.center{text-align:center; margin-left:auto; margin-right:auto;}
+    .section-head p{margin-left:auto; margin-right:auto;}
+
+    /* ---------- top bar ---------- */
+    header.topbar{
+      position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--cream) 92%, transparent);
+      backdrop-filter:saturate(160%) blur(8px); border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:var(--wrap); margin:0 auto;}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+    .brand img{width:38px; height:38px;}
+    .brand span{font-family:'Fraunces',serif; font-weight:700; font-size:1.15rem; color:var(--navy);}
+    .brand span em{font-style:normal; color:var(--teal);}
+    nav.links{display:flex; align-items:center; gap:28px;}
+    nav.links a{color:var(--ink); text-decoration:none; font-weight:600; font-size:.95rem;}
+    nav.links a:hover{color:var(--teal);}
+    @media (max-width:680px){ nav.links .navlink{display:none;} }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700;
+      padding:12px 22px; border-radius:11px; font-size:.95rem; border:1px solid transparent;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px);}
+    .btn.primary{background:var(--navy); color:var(--cream);}
+    .btn.primary:hover{box-shadow:0 8px 20px var(--shadow);}
+    .btn.ghost{background:transparent; color:var(--navy); border-color:var(--line);}
+    .btn.small{padding:9px 16px; font-size:.88rem; border-radius:9px;}
+
+    /* ---------- hero ---------- */
+    .hero{padding:64px 0 24px;}
+    .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;}
+    @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:48px;} }
+    .hero p.lead{font-size:1.15rem; max-width:48ch;}
+    .hero-ctas{display:flex; flex-wrap:wrap; gap:12px; margin:22px 0 20px;}
+    .hero-facts{display:flex; flex-wrap:wrap; gap:8px 22px; font-size:.88rem; color:var(--ink-soft); font-weight:600;}
+    .hero-facts span::before{content:"✦"; color:var(--gold); margin-right:6px; font-size:.8em;}
+
+    .collage{position:relative; height:420px;}
+    .collage img{
+      position:absolute; border-radius:14px; box-shadow:0 18px 34px var(--shadow); border:5px solid var(--paper);
+      object-fit:cover;
+    }
+    .collage .c1{width:56%; top:0; left:6%; transform:rotate(-6deg); z-index:2; aspect-ratio:1/1;}
+    .collage .c2{width:46%; bottom:0; right:2%; transform:rotate(5deg); z-index:3; aspect-ratio:1/1;}
+    .collage .c3{width:34%; bottom:8%; left:0; transform:rotate(-3deg); z-index:1; aspect-ratio:2/3;}
+    @media (max-width:900px){ .collage{height:340px;} }
+    @media (prefers-reduced-motion:no-preference){
+      .collage img{animation:rise .7s cubic-bezier(.2,.7,.2,1) both;}
+      .collage .c2{animation-delay:.08s;} .collage .c3{animation-delay:.16s;}
+      @keyframes rise{from{opacity:0; transform:translateY(16px) rotate(0deg);} }
+    }
+
+    /* ---------- pillars ---------- */
+    .pillars{padding-top:24px;}
+    .pillar-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+    @media (max-width:760px){ .pillar-grid{grid-template-columns:1fr;} }
+    .pillar{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:30px 32px;}
+    .pillar .icon{width:44px; height:44px; border-radius:11px; background:var(--teal-soft); display:flex; align-items:center; justify-content:center; margin-bottom:16px;}
+    .pillar .icon svg{width:22px; height:22px; stroke:var(--teal);}
+    .pillar.gold .icon{background:var(--gold-soft);}
+    .pillar.gold .icon svg{stroke:var(--gold);}
+
+    /* ---------- products ---------- */
+    .product-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:22px;}
+    .p-card{
+      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+      text-decoration:none; color:inherit; display:flex; flex-direction:column;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .p-card:hover{transform:translateY(-4px); box-shadow:0 16px 30px var(--shadow);}
+    .p-card .thumb{aspect-ratio:1/1; overflow:hidden; background:var(--line);}
+    .p-card .thumb img{width:100%; height:100%; object-fit:cover;}
+    .p-card .body{padding:16px 18px 20px; display:flex; flex-direction:column; flex:1;}
+    .p-card .cat{font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); margin-bottom:6px;}
+    .p-card h3{font-size:1.02rem; font-family:'Libre Franklin',sans-serif; font-weight:700; color:var(--navy); margin-bottom:10px; flex:1;}
+    .p-card .row{display:flex; align-items:center; justify-content:space-between; margin-top:auto;}
+    .p-card .price{font-family:'Fraunces',serif; font-weight:700; color:var(--navy); font-size:1.15rem;}
+    .p-card .view{font-size:.85rem; font-weight:700; color:var(--teal);}
+
+    /* ---------- trust strip ---------- */
+    .trust{background:var(--navy); color:var(--cream); border-radius:24px;}
+    @media (max-width:900px){ .trust{border-radius:0;} }
+    .trust-inner{max-width:var(--wrap); margin:0 auto; padding:44px 24px;}
+    .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+    @media (max-width:820px){ .trust-grid{grid-template-columns:1fr 1fr;} }
+    @media (max-width:480px){ .trust-grid{grid-template-columns:1fr;} }
+    .trust h3{color:var(--gold); font-family:'Fraunces',serif; font-size:1.05rem; margin-bottom:6px;}
+    .trust p{color:#cfd8e3; margin:0; font-size:.92rem;}
+    @media (prefers-color-scheme: dark){ .trust{background:#0a1420;} }
+
+    /* ---------- blog ---------- */
+    .blog-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px;}
+    .b-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px; text-decoration:none; color:inherit; display:block;}
+    .b-card:hover h3{color:var(--teal);}
+    .b-card h3{font-family:'Fraunces',serif; font-size:1.08rem; color:var(--navy); transition:color .15s;}
+    .b-card p{font-size:.92rem; margin-bottom:0;}
+    .blog-more{text-align:center; margin-top:28px;}
+
+    /* ---------- pinterest disclosure ---------- */
+    .disclosure{background:var(--paper); border:1px dashed var(--line); border-radius:var(--radius); padding:26px 28px; max-width:820px; margin:0 auto;}
+    .disclosure p{font-size:.92rem; margin-bottom:0;}
+    .disclosure h3{font-size:1rem;}
+
+    /* ---------- footer ---------- */
+    footer{background:var(--navy-deep); color:#c7cedb; margin-top:20px;}
+    @media (prefers-color-scheme: dark){ footer{background:#080f18;} }
+    .footer-inner{max-width:var(--wrap); margin:0 auto; padding:56px 24px 28px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px;}
+    @media (max-width:760px){ .footer-inner{grid-template-columns:1fr 1fr;} }
+    footer .brand span{color:#f2ecdc;}
+    footer h4{color:#8fa0b8; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; margin:0 0 14px;}
+    footer ul{list-style:none; margin:0; padding:0;}
+    footer li{margin-bottom:10px;}
+    footer a{color:#dfe4ec; text-decoration:none; font-size:.92rem;}
+    footer a:hover{color:#fff;}
+    footer p.about{color:#9aa6b8; font-size:.9rem; max-width:32ch;}
+    .footer-bottom{border-top:1px solid #23324a; margin-top:8px;}
+    .footer-bottom-inner{max-width:var(--wrap); margin:0 auto; padding:18px 24px; display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between; font-size:.82rem; color:#8391a5;}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <nav><a href="../index.html">← BrightOwlGoods</a><a href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">Etsy shop</a></nav>
-    <h1>Study tips & exam guides</h1>
-    <p class="lead">Free, no-fluff guides to help you pass your exam — and the printable cheat sheets that make it easier.</p>
 
-    <a class="card" href="how-to-pass-cpc-exam.html">
-      <h2>How to pass the CPC medical coding exam</h2>
-      <p>What the AAPC CPC exam covers, how to use your code books fast, and a 10-step study plan.</p>
-    </a>
-    <a class="card" href="nclex-study-tips.html">
-      <h2>How to study for the NCLEX: high-yield topics & tips</h2>
-      <p>The topics worth your time, how to think like the NCLEX, and free study strategies for nursing students.</p>
-    </a>
-    <a class="card" href="aswb-social-work-exam.html">
-      <h2>How to pass the ASWB social work exam (LMSW & LCSW)</h2>
-      <p>The "ASWB way" of answering, the content areas, and the decision rules that win questions.</p>
-    </a>
-    <a class="card" href="funny-nurse-gift-ideas.html">
-      <h2>15 funny nurse gift ideas they'll actually love</h2>
-      <p>Gift ideas for nurse week, graduation or a coworker — from mugs to desk accessories.</p>
-    </a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top">
+        <img src="logo.png" alt="BrightOwlGoods owl logo" />
+        <span>Bright<em>Owl</em>Goods</span>
+      </a>
+      <nav class="links">
+        <a class="navlink" href="#shop">Shop</a>
+        <a class="navlink" href="#guides">Guides</a>
+        <a class="navlink" href="blog/index.html">Blog</a>
+        <a class="btn primary small" href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">Shop on Etsy</a>
+      </nav>
+    </div>
+  </header>
 
-    <footer>
-      <p>© <span id="y"></span> BrightOwlGoods · <a href="../privacy.html">Privacy</a></p>
-    </footer>
-  </div>
+  <main>
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Independent Etsy shop</p>
+          <h1>Study guides, planners &amp; gifts for people getting things done.</h1>
+          <p class="lead">BrightOwlGoods designs no-fluff digital study guides and printables for nursing &amp; allied-health students, plus print-on-demand mugs, totes and gifts — made by a small shop, not a factory catalog.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">Shop on Etsy →</a>
+            <a class="btn ghost" href="#shop">See our products</a>
+          </div>
+          <div class="hero-facts">
+            <span>30+ digital guides</span>
+            <span>Instant download</span>
+            <span>Made-to-order gifts</span>
+          </div>
+        </div>
+        <div class="collage" aria-hidden="true">
+          <img class="c1" src="assets/products/anatomy.jpg" alt="" />
+          <img class="c2" src="assets/products/gradmug.jpg" alt="" />
+          <img class="c3" src="assets/products/planter.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars">
+      <div class="wrap pillar-grid">
+        <div class="pillar">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
+          <h3>Digital study guides &amp; printables</h3>
+          <p>Color-coded cheat sheets, planners and templates for nursing school, allied-health exams and everyday life — download instantly, print at home or study from your phone.</p>
+        </div>
+        <div class="pillar gold">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-3.17A3 3 0 0 0 17 5.5 3.5 3.5 0 0 0 13.5 2c-1.4 0-2.6.83-3.16 2.02A3.5 3.5 0 0 0 7 5.5 3 3 0 0 0 7.17 7H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1z"/><path d="M12 7v15M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/></svg></div>
+          <h3>Print-on-demand gifts</h3>
+          <p>Mugs, tote bags, ornaments and 3D-printed planters designed in-house and made to order — for nurses, teachers, plant people and everyone in between.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">From the shop</p>
+          <h2>What's on the shelf right now</h2>
+          <p>A cross-section of what we make — real listings, straight from our Etsy shop.</p>
+        </div>
+        <div class="product-grid">
+
+          <a class="p-card" href="https://www.etsy.com/listing/4526724828/" target="_blank" rel="noopener">
+            <div class="thumb"><img src="assets/products/anatomy.jpg" alt="Anatomy &amp; Physiology Mega Bundle cover" loading="lazy" /></div>
+            <div class="body"><p class="cat">Study Guide · Digital PDF</p><h3>Anatomy &amp; Physiology Mega Bundle, Vol. 1 &amp; 2</h3>
+              <div class="row"><span class="price">$17.99</span><span class="view">View on Etsy →</span></div></div>
+          </a>
+
+          <a class="p-card" href="https://www.etsy.com/listing/4532397785/" target="_blank" rel="noopener">
+            <div class="thumb"><img src="assets/products/vettech.jpg" alt="Vet Tech Mega Study Guide cover" loading="lazy" /></div>
+            <div class="body"><p class="cat">Study Guide · Digital PDF</p><h3>Vet Tech Mega Study Guide, All 9 VTNE Domains</h3>
+              <div class="row"><span class="price">$24.99</span><span class="view">View on Etsy →</span></div></div>
+          </a>
+
+          <a class="p-card" href="https://www.etsy.com/listing/4534522847/" target="_blank" rel="noopener">
+            <div class="thumb"><img src="assets/products/pmhnp.jpg" alt="PMHNP Exam Study Guide cover" loading="lazy" /></div>
+            <div class="body"><p class="cat">Study Guide · Digital PDF</p><h3>PMHNP Exam Study Guide, Psych NP Board Review</h3>
+              <div class="row"><span class="price">$9.99</span><span class="view">View on Etsy →</span></div></div>
+          </a>
+
+          <a class="p-card" href="https://www.etsy.com/listing/4522799214/" target="_blank" rel="noopener">
+            <div class="thumb"><img src="assets/products/homebinder.jpg" alt="Home Management Binder cover" loading="lazy" /></div>
+            <div class="body"><p class="cat">Planner · Digital PDF</p><h3>Home Management Binder, Full Household Planner</h3>
+              <div class="row"><span class="price">$16.99</span><span class="view">View on Etsy →</span></div></div>
+          </a>
+
+          <a class="p-card" href="https://www.etsy.com/listing/4521228701/" target="_blank" rel="noopener">
+            <div class="thumb"><img src="assets/products/wedding.jpg" alt="Wedding Planner Checklist cover" loading="lazy" /></div>
+            <div class="body"><p class="cat">Planner · Digital PDF</p><h3>Wedding Planner Checklist &amp; Budget Tracker</h3>
+              <div class="row"><span class="price">$11.99</span><span class="view">View on Etsy →</span></div></div>
+          </a>
+
+          <a class="p-card" href="https://www.etsy.com/listing/4521232016/" target="_blank" rel="noopener">
+            <div class="thumb"><img src="assets/products/budget.jpg" alt="Budget Spreadsheet cover" loading="lazy" /></div>
+            <div class="body"><p class="cat">Planner · Digital Spreadsheet</p><h3>Budget Spreadsheet, Excel &amp; Google Sheets</h3>
+              <div class="row"><span class="price">$16.99</span><span class="view">View on Etsy →</span></div></div>
+          </a>
+
+          <a class="p-card" href="https://www.etsy.com/listing/4534625485/" target="_blank" rel="noopener">
+            <div class="thumb"><img src="assets/products/planter.jpg" alt="Planter Pot STL 3D print file, succulent pot" loading="lazy" /></div>
+            <div class="body"><p class="cat">3D Print Files · STL</p><h3>Planter Pot STL, Succulent Pot + Matching Saucer</h3>
+              <div class="row"><span class="price">$3.99</span><span class="view">View on Etsy →</span></div></div>
+          </a>
+
+          <a class="p-card" href="https://www.etsy.com/listing/4531090730/" target="_blank" rel="noopener">
+            <div class="thumb"><img src="assets/products/gradmug.jpg" alt="One Degree Later graduation mug" loading="lazy" /></div>
+            <div class="body"><p class="cat">Gift · Ceramic Mug</p><h3>"One Degree Later" Graduation Mug, Class of 2026</h3>
+              <div class="row"><span class="price">$10.99</span><span class="view">View on Etsy →</span></div></div>
+          </a>
+
+          <a class="p-card" href="https://www.etsy.com/listing/4526683609/" target="_blank" rel="noopener">
+            <div class="thumb"><img src="assets/products/nursetote.jpg" alt="Nurses Call the Shots canvas tote bag" loading="lazy" /></div>
+            <div class="body"><p class="cat">Gift · Canvas Tote</p><h3>"Nurses Call the Shots" Tote Bag</h3>
+              <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div></div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="trust-inner">
+        <div class="trust-grid">
+          <div><h3>Instant download</h3><p>PDFs land in your inbox seconds after checkout — no waiting on shipping.</p></div>
+          <div><h3>Made to order</h3><p>Every mug, tote and ornament is printed only once it's ordered.</p></div>
+          <div><h3>One small shop</h3><p>Designed and run independently — not a reseller catalog.</p></div>
+          <div><h3>New drops regularly</h3><p>We add new guides and gifts every few weeks.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guides">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">Free resources</p>
+          <h2>Study tips &amp; exam guides</h2>
+          <p>No-fluff guides to help you pass your exam, plus the printable cheat sheets that make it easier.</p>
+        </div>
+        <div class="blog-grid">
+          <a class="b-card" href="blog/how-to-pass-cpc-exam.html">
+            <h3>How to Pass the CPC Medical Coding Exam</h3>
+            <p>A clear, 10-step study plan for the AAPC CPC exam.</p>
+          </a>
+          <a class="b-card" href="blog/nclex-study-tips.html">
+            <h3>How to Study for the NCLEX</h3>
+            <p>High-yield topics and free strategies that won't burn you out.</p>
+          </a>
+          <a class="b-card" href="blog/aswb-social-work-exam.html">
+            <h3>How to Pass the ASWB Social Work Exam</h3>
+            <p>The "ASWB way" of answering, for LMSW &amp; LCSW candidates.</p>
+          </a>
+          <a class="b-card" href="blog/funny-nurse-gift-ideas.html">
+            <h3>15 Funny Nurse Gift Ideas They'll Actually Love</h3>
+            <p>Practical, affordable picks for nurse week or graduation.</p>
+          </a>
+        </div>
+        <div class="blog-more"><a class="btn ghost small" href="blog/index.html">Read all articles →</a></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="disclosure">
+          <h3>Our Pinterest tool</h3>
+          <p>We use an in-house application that connects to the Pinterest API to publish Pins of our own products to our own Pinterest boards. If you connect a Pinterest account to this tool, read how we handle your data in our <a href="privacy.html">Privacy Policy</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a class="brand" href="#top"><img src="logo.png" alt="BrightOwlGoods owl logo" /><span>Bright<em>Owl</em>Goods</span></a>
+        <p class="about">Digital study guides, planners and print-on-demand gifts, designed by an independent Etsy shop.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">Etsy shop</a></li>
+          <li><a href="#shop">Featured products</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#guides">Study guides &amp; tips</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:brightowlgoods@gmail.com">brightowlgoods@gmail.com</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span>© <span id="y"></span> BrightOwlGoods</span>
+        <span>Not endorsed by or affiliated with Pinterest or Etsy.</span>
+      </div>
+    </div>
+  </footer>
+
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
