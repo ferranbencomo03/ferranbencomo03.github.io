@@ -9,27 +9,29 @@
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root{
-      --cream:#f9f4e7; --paper:#ffffff; --navy:#17304d; --teal:#0e6f64; --gold:#c1892e;
-      --ink:#262a33; --ink-soft:#5b6170; --line:#e8ddc2;
+      --paper:#f6f0e0;--card:#fffdf6;--ink:#1c2c40;--ink-soft:#4e5d72;
+      --ballpoint:#0d6a60;--highlight:#ffd666;--stamp:#b2492e;--rule:#d8cbab;
     }
     @media (prefers-color-scheme: dark){
-      :root{ --cream:#0f1a28; --paper:#182838; --navy:#f2ecdc; --teal:#3fd9c7; --gold:#e7b65e; --ink:#dfe2e8; --ink-soft:#a7adba; --line:#2a3849; }
+      :root{--paper:#131c2a;--card:#1b2637;--ink:#ebe4d2;--ink-soft:#a8b1c0;
+            --ballpoint:#5accbe;--highlight:#d9a63f;--stamp:#e07a5c;--rule:#2c3a50;}
     }
-    *{box-sizing:border-box;}
-    body{margin:0; font-family:'Libre Franklin',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-         color:var(--ink); background:var(--cream); line-height:1.7;}
-    .wrap{max-width:740px; margin:0 auto; padding:48px 24px 72px;}
-    .home{display:inline-flex; align-items:center; gap:8px; margin-bottom:28px; color:var(--teal); text-decoration:none; font-weight:600; font-size:.95rem;}
-    h1{font-family:'Fraunces',Georgia,serif; color:var(--navy); font-size:2rem; font-weight:700; margin-bottom:6px;}
-    .upd{color:var(--ink-soft); margin-bottom:32px;}
-    h2{font-family:'Fraunces',Georgia,serif; color:var(--navy); font-size:1.2rem; font-weight:600; margin:30px 0 8px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Atkinson Hyperlegible',Seravek,Verdana,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;}
+    :focus-visible{outline:2.5px solid var(--ballpoint);outline-offset:3px;border-radius:2px;}
+    .wrap{max-width:740px;margin:0 auto;padding:32px 24px 64px;}
+    .home{display:inline-flex;align-items:center;gap:8px;margin-bottom:28px;color:var(--ballpoint);text-decoration:none;font-weight:700;font-size:.95rem;}
+    .home:hover{text-decoration:underline;text-underline-offset:3px;}
+    h1{font-family:'Fraunces','Iowan Old Style',Georgia,serif;font-weight:900;color:var(--ink);font-size:2.1rem;margin-bottom:6px;}
+    .upd{color:var(--ink-soft);margin-bottom:32px;}
+    h2{font-family:'Fraunces','Iowan Old Style',Georgia,serif;color:var(--ink);font-size:1.25rem;margin:30px 0 8px;}
     p,li{margin-bottom:10px;}
     ul{padding-left:22px;}
-    a{color:var(--teal);}
-    .note{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin-top:30px; color:var(--ink-soft); font-size:.95rem;}
+    a{color:var(--ballpoint);}
+    .note{background:var(--card);border:1.5px dashed var(--rule);border-radius:8px;padding:18px 20px;margin-top:30px;color:var(--ink-soft);font-size:.95rem;}
   </style>
 </head>
 <body>

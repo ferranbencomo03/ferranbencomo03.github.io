@@ -19,258 +19,408 @@
   <meta name="twitter:card" content="summary" />
   <link rel="icon" type="image/png" href="logo.png" />
 
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"BrightOwlGoods",
+   "url":"https://ferranbencomo03.github.io/","logo":"https://ferranbencomo03.github.io/logo.png",
+   "sameAs":["https://www.etsy.com/shop/BrightOwlGoods"]}
+  </script>
+
+  <script>document.documentElement.classList.add('js');</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,550;0,9..144,700;0,9..144,900;1,9..144,550&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
+    /* ==========================================================
+       BrightOwlGoods — "The Owl's Desk"
+       Paper-goods editorial. Everything we sell is a well-kept
+       page, so the site behaves like one: paper ground, ruled
+       lines, binder tabs, index cards, highlighter, one owl stamp.
+       ========================================================== */
     :root{
-      --cream:#f9f4e7;
-      --paper:#ffffff;
-      --navy:#17304d;
-      --navy-deep:#0d1d31;
-      --teal:#0e6f64;
-      --teal-soft:#e3efec;
-      --gold:#c1892e;
-      --gold-soft:#f6e9d2;
-      --ink:#262a33;
-      --ink-soft:#5b6170;
-      --line:#e8ddc2;
-      --shadow: rgba(23,48,77,.10);
-      --radius:16px;
-      --wrap:1180px;
+      /* color — daylight desk */
+      --paper:#f6f0e0;
+      --paper-edge:#ece3cb;
+      --card:#fffdf6;
+      --ink:#1c2c40;
+      --ink-soft:#4e5d72;
+      --ballpoint:#0d6a60;
+      --ballpoint-deep:#084d46;
+      --highlight:#ffd666;
+      --stamp:#b2492e;
+      --rule:#d8cbab;
+      --note-amber:#fbe9b7;
+      --note-teal:#d9ece7;
+      --note-pink:#f7e0da;
+      --note-green:#e4ecd4;
+      --band:#1c2c40;
+      --band-ink:#f0ead9;
+      --band-soft:#b9c3d2;
+
+      /* type */
+      --font-display:'Fraunces','Iowan Old Style',Georgia,serif;
+      --font-body:'Atkinson Hyperlegible',Seravek,Verdana,sans-serif;
+      --text-hero:clamp(2.6rem, 1.5rem + 4.4vw, 4.6rem);
+      --text-h2:clamp(1.6rem, 1.3rem + 1.4vw, 2.3rem);
+
+      /* structure */
+      --wrap:1140px;
+      --r-sm:6px; --r-md:12px; --r-lg:18px;
+      --shadow-sm:0 1px 3px rgba(28,44,64,.12);
+      --shadow-md:0 10px 24px rgba(28,44,64,.14);
+      --shadow-lg:0 22px 44px rgba(28,44,64,.18);
+
+      /* motion */
+      --dur-fast:.16s; --dur-base:.55s; --dur-slow:.85s;
+      --ease-out:cubic-bezier(.22,.7,.25,1);
+      --ease-settle:cubic-bezier(.2,.85,.3,1.06);
     }
+    /* night-owl desk */
     @media (prefers-color-scheme: dark){
       :root{
-        --cream:#0f1a28;
-        --paper:#16243780;
-        --paper:#182838;
-        --navy:#f2ecdc;
-        --navy-deep:#f2ecdc;
-        --teal:#3fd9c7;
-        --teal-soft:#152f2c;
-        --gold:#e7b65e;
-        --gold-soft:#2c2415;
-        --ink:#dfe2e8;
-        --ink-soft:#a7adba;
-        --line:#2a3849;
-        --shadow: rgba(0,0,0,.35);
+        --paper:#131c2a;
+        --paper-edge:#0e1521;
+        --card:#1b2637;
+        --ink:#ebe4d2;
+        --ink-soft:#a8b1c0;
+        --ballpoint:#5accbe;
+        --ballpoint-deep:#83e0d4;
+        --highlight:#d9a63f;
+        --stamp:#e07a5c;
+        --rule:#2c3a50;
+        --note-amber:#3b3120;
+        --note-teal:#1d3330;
+        --note-pink:#3a2823;
+        --note-green:#2a3221;
+        --band:#0d1420;
+        --band-ink:#e9e2d0;
+        --band-soft:#93a0b4;
+        --shadow-sm:0 1px 3px rgba(0,0,0,.45);
+        --shadow-md:0 10px 24px rgba(0,0,0,.5);
+        --shadow-lg:0 22px 44px rgba(0,0,0,.55);
       }
     }
+
     *{box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
     body{
-      margin:0; background:var(--cream); color:var(--ink);
-      font-family:'Libre Franklin',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      line-height:1.65; -webkit-font-smoothing:antialiased;
+      margin:0; background:var(--paper); color:var(--ink);
+      font-family:var(--font-body); line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    /* paper grain — one texture, whole desk */
+    body::after{
+      content:""; position:fixed; inset:0; z-index:2147483647; pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
     }
     img{max-width:100%; display:block;}
-    a{color:var(--teal);}
+    a{color:var(--ballpoint);}
+    :focus-visible{outline:2.5px solid var(--ballpoint); outline-offset:3px; border-radius:2px;}
     .wrap{max-width:var(--wrap); margin:0 auto; padding:0 24px;}
+    .skip{
+      position:absolute; left:-9999px; top:0; background:var(--ink); color:var(--paper);
+      padding:10px 18px; z-index:100; border-radius:0 0 var(--r-sm) 0; text-decoration:none; font-weight:700;
+    }
+    .skip:focus{left:0;}
+
     .eyebrow{
-      font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
-      color:var(--gold); margin:0 0 10px;
+      display:flex; align-items:center; gap:10px;
+      font-size:.76rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+      color:var(--stamp); margin:0 0 12px;
     }
+    .eyebrow::before{content:""; width:26px; height:2px; background:var(--stamp); flex:none;}
     h1,h2,h3{
-      font-family:'Fraunces', Georgia, serif; color:var(--navy); font-weight:600;
-      line-height:1.12; text-wrap:balance; margin:0 0 14px;
+      font-family:var(--font-display); color:var(--ink); font-weight:700;
+      line-height:1.08; text-wrap:balance; margin:0 0 14px;
     }
-    h1{font-size:clamp(2.1rem, 1.3rem + 3vw, 3.3rem); font-weight:600;}
-    h2{font-size:clamp(1.55rem, 1.2rem + 1.4vw, 2.1rem);}
-    h3{font-size:1.15rem; font-weight:700; margin-bottom:8px;}
-    p{margin:0 0 14px; color:var(--ink-soft); max-width:60ch;}
-    section{padding:64px 0;}
-    .section-head{max-width:640px; margin:0 auto 40px;}
-    .section-head.center{text-align:center; margin-left:auto; margin-right:auto;}
-    .section-head p{margin-left:auto; margin-right:auto;}
+    h1{font-size:var(--text-hero); font-weight:900; letter-spacing:-.01em;}
+    h2{font-size:var(--text-h2);}
+    p{margin:0 0 14px; color:var(--ink-soft); max-width:62ch;}
+    section{padding:60px 0;}
+    .section-head{max-width:660px; margin:0 0 36px;}
+    .section-head p{margin-bottom:0;}
 
-    /* ---------- scroll-reveal ---------- */
+    /* highlighter — functional emphasis, amber over the words that matter */
+    .hl{
+      position:relative; white-space:nowrap;
+      background-image:linear-gradient(104deg, transparent 1.5%, var(--highlight) 3%, var(--highlight) 97%, transparent 98.5%);
+      background-repeat:no-repeat; background-size:100% .62em; background-position:0 68%;
+      padding:0 .08em;
+    }
+    @media (prefers-color-scheme: dark){ .hl{color:#14202e; background-size:100% .95em; background-position:0 55%;} }
+
+    /* ---------- reveal (section entries only) ---------- */
+    .js .reveal{opacity:1;}
     @media (prefers-reduced-motion:no-preference){
-      .reveal{
-        opacity:0; transform:translateY(22px);
-        transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
-        transition-delay:var(--rd, 0s);
+      .js .reveal{
+        opacity:0; transform:translateY(18px);
+        transition:opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
       }
-      .reveal.is-visible{opacity:1; transform:translateY(0);}
+      .js .reveal.is-visible{opacity:1; transform:none;}
     }
+    @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
 
-    /* ---------- top bar ---------- */
+    /* ---------- topbar : ledger header ---------- */
     header.topbar{
-      position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--cream) 92%, transparent);
-      backdrop-filter:saturate(160%) blur(8px); border-bottom:1px solid transparent;
-      transition:border-color .25s ease, box-shadow .25s ease;
+      position:sticky; top:0; z-index:20; background:var(--paper);
+      border-bottom:1px solid var(--rule);
+      box-shadow:0 3px 0 -2px var(--rule);
+      transition:box-shadow var(--dur-fast) ease;
     }
-    header.topbar.scrolled{border-bottom-color:var(--line); box-shadow:0 6px 20px var(--shadow);}
-    .brand img{transition:transform .35s cubic-bezier(.2,.7,.2,1);}
-    .brand:hover img{transform:rotate(-8deg) scale(1.06);}
-    .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:var(--wrap); margin:0 auto;}
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+    header.topbar.scrolled{box-shadow:0 3px 0 -2px var(--rule), var(--shadow-md);}
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      padding:12px 24px; max-width:var(--wrap); margin:0 auto;
+    }
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; min-height:44px;}
     .brand img{width:38px; height:38px;}
-    .brand span{font-family:'Fraunces',serif; font-weight:700; font-size:1.15rem; color:var(--navy);}
-    .brand span em{font-style:normal; color:var(--teal);}
-    nav.links{display:flex; align-items:center; gap:28px;}
-    nav.links a{color:var(--ink); text-decoration:none; font-weight:600; font-size:.95rem;}
-    nav.links a:hover{color:var(--teal);}
+    .brand span{font-family:var(--font-display); font-weight:700; font-size:1.12rem; color:var(--ink);}
+    .brand span em{font-style:normal; color:var(--ballpoint);}
+    nav.links{display:flex; align-items:center; gap:24px;}
+    nav.links a.navlink{
+      color:var(--ink); text-decoration:none; font-weight:700; font-size:.94rem;
+      padding:10px 2px; border-bottom:2px solid transparent;
+    }
+    nav.links a.navlink:hover{color:var(--ballpoint); border-bottom-color:var(--highlight);}
     @media (max-width:680px){ nav.links .navlink{display:none;} }
 
     .btn{
-      position:relative; display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700;
-      padding:12px 22px; border-radius:11px; font-size:.95rem; border:1px solid transparent;
-      transition:transform .15s ease, box-shadow .15s ease; overflow:hidden;
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      text-decoration:none; font-weight:700; font-size:.95rem; font-family:var(--font-body);
+      padding:12px 22px; min-height:44px; border-radius:var(--r-sm);
+      border:1.5px solid transparent; cursor:pointer;
+      transition:transform var(--dur-fast) ease, box-shadow var(--dur-fast) ease, background-color var(--dur-fast) ease;
     }
-    .btn:hover{transform:translateY(-2px);}
-    .btn:active{transform:translateY(0);}
-    .btn.primary{background:var(--navy); color:var(--cream);}
-    .btn.primary:hover{box-shadow:0 10px 24px var(--shadow);}
-    .btn.primary::before{
-      content:""; position:absolute; inset:0; border-radius:inherit;
-      background:linear-gradient(115deg, transparent 20%, rgba(255,255,255,.22) 40%, transparent 60%);
-      transform:translateX(-120%); transition:transform .6s ease;
-    }
-    .btn.primary:hover::before{transform:translateX(120%);}
-    .btn.ghost{background:transparent; color:var(--navy); border-color:var(--line);}
-    .btn.ghost:hover{background:var(--paper); border-color:var(--teal);}
-    .btn.small{padding:9px 16px; font-size:.88rem; border-radius:9px;}
+    .btn:hover{transform:translateY(-2px); box-shadow:var(--shadow-md);}
+    .btn:active{transform:translateY(0); box-shadow:var(--shadow-sm);}
+    .btn.primary{background:var(--ballpoint); color:var(--card);}
+    .btn.primary:hover{background:var(--ballpoint-deep);}
+    @media (prefers-color-scheme: dark){ .btn.primary{color:#0d1420;} }
+    .btn.ghost{background:transparent; color:var(--ink); border-color:var(--ink);}
+    .btn.ghost:hover{background:var(--card);}
+    .btn.small{padding:9px 16px; font-size:.88rem;}
 
-    /* ---------- hero ---------- */
-    .hero{padding:64px 0 24px; position:relative; overflow:hidden;}
-    .hero::before{
-      content:""; position:absolute; z-index:-1; top:-220px; right:-160px; width:560px; height:560px;
-      border-radius:50%; background:radial-gradient(circle at 35% 35%, var(--gold-soft), transparent 70%);
-      opacity:.8; filter:blur(6px);
+    /* ---------- hero : the desk ---------- */
+    .hero{padding:72px 0 40px; position:relative;}
+    /* ruled margin — legal-pad lines behind the left column */
+    .hero .wrap{position:relative;}
+    .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:52px; align-items:center;}
+    @media (max-width:920px){ .hero-grid{grid-template-columns:1fr; gap:56px;} }
+    .hero-text{position:relative; padding-top:8px;}
+    .hero-text::before{ /* faint ruling under the headline block */
+      content:""; position:absolute; inset:-12px -20px -12px -20px; z-index:-1;
+      background:repeating-linear-gradient(to bottom, transparent 0 35px, var(--rule) 35px 36px);
+      opacity:.5; border-radius:var(--r-md);
+      -webkit-mask-image:linear-gradient(to bottom, black 55%, transparent);
+              mask-image:linear-gradient(to bottom, black 55%, transparent);
     }
-    .hero::after{
-      content:""; position:absolute; z-index:-1; bottom:-260px; left:-200px; width:520px; height:520px;
-      border-radius:50%; background:radial-gradient(circle at 60% 40%, var(--teal-soft), transparent 70%);
-      opacity:.7; filter:blur(6px);
+    .hero p.lead{font-size:1.14rem; max-width:50ch; margin-top:4px;}
+    .hero-ctas{display:flex; flex-wrap:wrap; gap:12px; margin:24px 0 22px;}
+    .hero-facts{display:flex; flex-wrap:wrap; gap:10px 24px; font-size:.9rem; color:var(--ink-soft); font-weight:700; padding:0; margin:0; list-style:none;}
+    .hero-facts li{display:flex; align-items:center; gap:7px;}
+    .hero-facts svg{width:15px; height:15px; stroke:var(--ballpoint); flex:none;}
+
+    /* paper pile */
+    .pile{position:relative; height:440px;}
+    @media (max-width:920px){ .pile{height:360px; max-width:480px;} }
+    .pile .sheet{
+      position:absolute; background:var(--card); padding:10px 10px 14px;
+      border:1px solid var(--paper-edge); border-radius:3px; box-shadow:var(--shadow-md);
     }
+    .pile .sheet img{border-radius:2px; object-fit:cover; width:100%; height:100%;}
+    .pile .s1{width:57%; aspect-ratio:1/1; top:2%; left:4%; transform:rotate(-5deg); z-index:2;}
+    .pile .s2{width:46%; aspect-ratio:1/1; bottom:0; right:0; transform:rotate(4deg); z-index:3;}
+    .pile .s3{width:33%; aspect-ratio:2/3; bottom:6%; left:0; transform:rotate(-2deg); z-index:1;}
+    /* tape strips */
+    .pile .sheet::before{
+      content:""; position:absolute; top:-10px; left:50%; width:74px; height:22px;
+      transform:translateX(-50%) rotate(-2deg);
+      background:color-mix(in srgb, var(--highlight) 55%, transparent);
+      border-left:1px dashed rgba(0,0,0,.08); border-right:1px dashed rgba(0,0,0,.08);
+    }
+    /* sticky note — functional: links to this week's new listing */
+    .pile .note-new{
+      position:absolute; top:-6%; right:2%; z-index:4; width:200px;
+      background:var(--note-amber); color:var(--ink);
+      padding:16px 16px 18px; transform:rotate(3deg);
+      box-shadow:var(--shadow-md); text-decoration:none;
+      font-weight:700; line-height:1.4; font-size:.95rem;
+      border-radius:2px;
+    }
+    .pile .note-new::before{
+      content:""; position:absolute; top:-8px; left:50%; transform:translateX(-50%);
+      width:12px; height:12px; border-radius:50%; background:var(--stamp);
+      box-shadow:0 2px 3px rgba(0,0,0,.3);
+    }
+    .pile .note-new small{display:block; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--stamp); margin-bottom:6px;}
+    .pile .note-new:hover{transform:rotate(0deg) translateY(-3px); box-shadow:var(--shadow-lg);}
     @media (prefers-reduced-motion:no-preference){
-      .hero::before{animation:drift1 16s ease-in-out infinite;}
-      .hero::after{animation:drift2 19s ease-in-out infinite;}
-      @keyframes drift1{0%,100%{transform:translate(0,0);} 50%{transform:translate(-26px,24px);}}
-      @keyframes drift2{0%,100%{transform:translate(0,0);} 50%{transform:translate(22px,-18px);}}
+      .pile .note-new{transition:transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease;}
     }
-    .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;}
-    @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:48px;} }
-    .hero p.lead{font-size:1.15rem; max-width:48ch;}
-    .hero-ctas{display:flex; flex-wrap:wrap; gap:12px; margin:22px 0 20px;}
-    .hero-facts{display:flex; flex-wrap:wrap; gap:8px 22px; font-size:.88rem; color:var(--ink-soft); font-weight:600;}
-    .hero-facts span::before{content:"✦"; color:var(--gold); margin-right:6px; font-size:.8em;}
+
+    /* orchestrated hero entrance — papers settle onto the desk */
     @media (prefers-reduced-motion:no-preference){
-      .hero-facts span::before{display:inline-block; animation:twinkle 2.6s ease-in-out infinite;}
-      .hero-facts span:nth-child(2)::before{animation-delay:.3s;}
-      .hero-facts span:nth-child(3)::before{animation-delay:.6s;}
-      @keyframes twinkle{0%,100%{opacity:1; transform:scale(1);} 50%{opacity:.4; transform:scale(.8);}}
-      .hero-text > *{animation:heroIn .7s cubic-bezier(.2,.7,.2,1) both;}
-      .hero-text .eyebrow{animation-delay:0s;}
-      .hero-text h1{animation-delay:.06s;}
-      .hero-text .lead{animation-delay:.12s;}
-      .hero-text .hero-ctas{animation-delay:.18s;}
-      .hero-text .hero-facts{animation-delay:.24s;}
-      @keyframes heroIn{from{opacity:0; transform:translateY(14px);}}
+      .js .hero-text > *{animation:settleText var(--dur-base) var(--ease-out) both;}
+      .js .hero-text .eyebrow{animation-delay:.05s;}
+      .js .hero-text h1{animation-delay:.14s;}
+      .js .hero-text .lead{animation-delay:.24s;}
+      .js .hero-text .hero-ctas{animation-delay:.34s;}
+      .js .hero-text .hero-facts{animation-delay:.44s;}
+      @keyframes settleText{from{opacity:0; transform:translateY(16px);}}
+      .js .pile .sheet, .js .pile .note-new{animation:settleSheet var(--dur-slow) var(--ease-settle) both;}
+      .js .pile .s3{animation-delay:.15s;}
+      .js .pile .s1{animation-delay:.28s;}
+      .js .pile .s2{animation-delay:.44s;}
+      .js .pile .note-new{animation-delay:.66s;}
+      @keyframes settleSheet{from{opacity:0; transform:translateY(-26px) rotate(0deg);}}
     }
 
-    .collage{position:relative; height:420px;}
-    .collage img{
-      position:absolute; border-radius:14px; box-shadow:0 18px 34px var(--shadow); border:5px solid var(--paper);
-      object-fit:cover;
+    /* ---------- the catalog : binder folder + tabs (signature) ---------- */
+    #catalog{padding-top:24px;}
+    .folder-tabs{
+      display:flex; flex-wrap:wrap; gap:6px; padding:0 14px; margin:0;
+      list-style:none; position:relative; z-index:1;
     }
-    .collage .c1{width:56%; top:0; left:6%; transform:rotate(-6deg); z-index:2; aspect-ratio:1/1;}
-    .collage .c2{width:46%; bottom:0; right:2%; transform:rotate(5deg); z-index:3; aspect-ratio:1/1;}
-    .collage .c3{width:34%; bottom:8%; left:0; transform:rotate(-3deg); z-index:1; aspect-ratio:2/3;}
-    @media (max-width:900px){ .collage{height:340px;} }
-    @media (prefers-reduced-motion:no-preference){
-      .collage img{animation:rise .7s cubic-bezier(.2,.7,.2,1) both;}
-      .collage .c2{animation-delay:.08s;} .collage .c3{animation-delay:.16s;}
-      @keyframes rise{from{opacity:0; transform:translateY(16px) rotate(0deg);} }
+    .folder-tabs button{
+      font-family:var(--font-body); font-weight:700; font-size:.9rem; color:var(--ink-soft);
+      background:var(--paper-edge); border:1px solid var(--rule); border-bottom:none;
+      border-radius:10px 10px 0 0; padding:11px 18px 13px; min-height:44px; cursor:pointer;
+      transform:translateY(4px);
+      transition:background-color var(--dur-fast) ease, color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out);
     }
-
-    /* ---------- pillars ---------- */
-    .pillars{padding-top:24px;}
-    .pillar-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-    @media (max-width:760px){ .pillar-grid{grid-template-columns:1fr;} }
-    .pillar{
-      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:30px 32px;
-      transition:transform .2s ease, box-shadow .2s ease;
+    .folder-tabs button:hover{background:var(--card); color:var(--ink); transform:translateY(1px);}
+    .folder-tabs button[aria-pressed="true"]{
+      background:var(--card); color:var(--ink); transform:translateY(1px);
+      box-shadow:0 -4px 10px -6px rgba(28,44,64,.25);
+      border-bottom:1px solid var(--card); margin-bottom:-1px; position:relative; z-index:3;
     }
-    .pillar:hover{transform:translateY(-3px); box-shadow:0 14px 28px var(--shadow);}
-    .pillar .icon{
-      width:44px; height:44px; border-radius:11px; background:var(--teal-soft); display:flex; align-items:center;
-      justify-content:center; margin-bottom:16px; transition:transform .3s cubic-bezier(.2,.7,.2,1);
+    .folder-tabs button .count{
+      font-size:.74rem; color:var(--stamp); font-weight:700; margin-left:5px;
     }
-    .pillar:hover .icon{transform:scale(1.1) rotate(-6deg);}
-    .pillar .icon svg{width:22px; height:22px; stroke:var(--teal);}
-    .pillar.gold .icon{background:var(--gold-soft);}
-    .pillar.gold .icon svg{stroke:var(--gold);}
-
-    /* ---------- products ---------- */
-    .product-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:22px;}
+    .folder-body{
+      position:relative; background:var(--card); border:1px solid var(--rule);
+      border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg); padding:34px 30px 38px;
+      box-shadow:var(--shadow-sm);
+    }
+    .filter-status{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+      clip:rect(0 0 0 0); white-space:nowrap; border:0;
+    }
+    .product-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(235px,1fr)); gap:26px;}
     .p-card{
-      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
-      text-decoration:none; color:inherit; display:flex; flex-direction:column;
-      transition:transform .18s ease, box-shadow .18s ease;
+      background:var(--paper); border:1px solid var(--paper-edge); border-radius:var(--r-sm);
+      overflow:visible; text-decoration:none; color:inherit; display:flex; flex-direction:column;
+      padding:12px 12px 16px; position:relative;
+      transform:rotate(var(--tilt, 0deg));
+      transition:transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease;
     }
-    .p-card:hover{transform:translateY(-6px); box-shadow:0 18px 34px var(--shadow);}
-    .p-card .thumb{aspect-ratio:1/1; overflow:hidden; background:var(--line);}
-    .p-card .thumb img{width:100%; height:100%; object-fit:cover; transition:transform .45s cubic-bezier(.2,.7,.2,1);}
-    .p-card:hover .thumb img{transform:scale(1.08);}
-    .p-card .view{transition:transform .2s ease;}
-    .p-card:hover .view{transform:translateX(3px);}
-    .p-card .body{padding:16px 18px 20px; display:flex; flex-direction:column; flex:1;}
-    .p-card .cat{font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); margin-bottom:6px;}
-    .p-card h3{font-size:1.02rem; font-family:'Libre Franklin',sans-serif; font-weight:700; color:var(--navy); margin-bottom:10px; flex:1;}
-    .p-card .row{display:flex; align-items:center; justify-content:space-between; margin-top:auto;}
-    .p-card .price{font-family:'Fraunces',serif; font-weight:700; color:var(--navy); font-size:1.15rem;}
-    .p-card .view{font-size:.85rem; font-weight:700; color:var(--teal);}
-
-    /* ---------- trust strip ---------- */
-    .trust{background:var(--navy); color:var(--cream); border-radius:24px;}
-    @media (max-width:900px){ .trust{border-radius:0;} }
-    .trust-inner{max-width:var(--wrap); margin:0 auto; padding:44px 24px;}
-    .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
-    @media (max-width:820px){ .trust-grid{grid-template-columns:1fr 1fr;} }
-    @media (max-width:480px){ .trust-grid{grid-template-columns:1fr;} }
-    .trust h3{color:var(--gold); font-family:'Fraunces',serif; font-size:1.05rem; margin-bottom:6px;}
-    .trust p{color:#cfd8e3; margin:0; font-size:.92rem;}
-    @media (prefers-color-scheme: dark){ .trust{background:#0a1420;} }
-
-    /* ---------- blog ---------- */
-    .blog-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px;}
-    .b-card{
-      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px;
-      text-decoration:none; color:inherit; display:block; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    .p-card[hidden]{display:none;}
+    .p-card:nth-child(4n+1){--tilt:-.5deg;}
+    .p-card:nth-child(4n+2){--tilt:.4deg;}
+    .p-card:nth-child(4n+3){--tilt:-.25deg;}
+    .p-card:nth-child(4n+4){--tilt:.55deg;}
+    .p-card:hover{transform:rotate(0deg) translateY(-5px); box-shadow:var(--shadow-md); z-index:2;}
+    .p-card .thumb{aspect-ratio:1/1; overflow:hidden; border-radius:3px; border:1px solid var(--paper-edge); background:var(--paper-edge); position:relative;}
+    .p-card .thumb img{width:100%; height:100%; object-fit:cover; transition:transform var(--dur-base) var(--ease-out);}
+    .p-card:hover .thumb img{transform:scale(1.045);}
+    .thumb-fallback{
+      position:absolute; inset:0; display:none; flex-direction:column; align-items:center; justify-content:center;
+      gap:10px; text-align:center; padding:18px; color:var(--ink-soft); font-size:.85rem; font-weight:700;
     }
-    .b-card:hover{transform:translateY(-4px); box-shadow:0 14px 26px var(--shadow); border-color:var(--teal);}
-    .b-card:hover h3{color:var(--teal);}
-    .b-card h3{font-family:'Fraunces',serif; font-size:1.08rem; color:var(--navy); transition:color .15s;}
-    .b-card h3::after{content:" →"; opacity:0; transition:opacity .2s ease;}
-    .b-card:hover h3::after{opacity:1;}
-    .b-card p{font-size:.92rem; margin-bottom:0;}
-    .blog-more{text-align:center; margin-top:28px;}
+    .thumb-fallback svg{width:44px; height:44px; stroke:var(--ink-soft); opacity:.7;}
+    .thumb.is-missing img{display:none;}
+    .thumb.is-missing .thumb-fallback{display:flex;}
+    .p-card .stampline{
+      display:inline-block; align-self:flex-start; margin:12px 0 8px;
+      font-size:.68rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+      color:var(--stamp); border:1.5px dashed color-mix(in srgb, var(--stamp) 55%, transparent);
+      border-radius:3px; padding:3px 8px; transform:rotate(-1.2deg);
+    }
+    .p-card h3{font-size:1.02rem; line-height:1.3; margin:0 0 12px; flex:1;}
+    .p-card .row{display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-top:auto;}
+    .p-card .price{font-family:var(--font-display); font-weight:700; font-size:1.18rem; color:var(--ink);}
+    .p-card .view{font-size:.85rem; font-weight:700; color:var(--ballpoint); white-space:nowrap;}
+    .p-card:hover .view{text-decoration:underline; text-underline-offset:3px;}
+    /* cards settle in when a tab files them out */
+    @media (prefers-reduced-motion:no-preference){
+      .p-card.enter{animation:cardSettle var(--dur-base) var(--ease-settle) both;}
+      @keyframes cardSettle{from{opacity:0; transform:translateY(14px) rotate(0deg);}}
+    }
+    .empty-drawer{display:none; text-align:center; padding:40px 20px; color:var(--ink-soft); font-weight:700;}
+    .empty-drawer.show{display:block;}
+    .catalog-foot{text-align:center; margin-top:30px;}
 
-    /* ---------- pinterest disclosure ---------- */
-    .disclosure{background:var(--paper); border:1px dashed var(--line); border-radius:var(--radius); padding:26px 28px; max-width:820px; margin:0 auto;}
-    .disclosure p{font-size:.92rem; margin-bottom:0;}
-    .disclosure h3{font-size:1rem;}
+    /* ---------- ink band : why us ---------- */
+    .band{background:var(--band); color:var(--band-ink); padding:52px 0;}
+    .band-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:30px;}
+    @media (max-width:860px){ .band-grid{grid-template-columns:1fr 1fr;} }
+    @media (max-width:480px){ .band-grid{grid-template-columns:1fr;} }
+    .band h3{
+      color:var(--band-ink); font-size:1.05rem; margin-bottom:8px;
+      display:inline-block;
+      box-shadow:inset 0 -0.45em 0 color-mix(in srgb, var(--highlight) 38%, transparent);
+    }
+    .band p{color:var(--band-soft); margin:0; font-size:.93rem; max-width:none;}
 
-    /* ---------- footer ---------- */
-    footer{background:var(--navy-deep); color:#c7cedb; margin-top:20px;}
-    @media (prefers-color-scheme: dark){ footer{background:#080f18;} }
-    .footer-inner{max-width:var(--wrap); margin:0 auto; padding:56px 24px 28px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px;}
+    /* ---------- notes wall : free guides ---------- */
+    .notes-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:26px; align-items:stretch;}
+    .note{
+      position:relative; display:flex; flex-direction:column; text-decoration:none; color:var(--ink);
+      padding:26px 22px 22px; border-radius:2px; box-shadow:var(--shadow-sm);
+      transform:rotate(var(--tilt,0deg));
+      transition:transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease;
+      min-height:170px;
+    }
+    .note:nth-child(1){--tilt:-1.3deg; background:var(--note-amber);}
+    .note:nth-child(2){--tilt:.9deg;  background:var(--note-teal);}
+    .note:nth-child(3){--tilt:-.7deg; background:var(--note-pink);}
+    .note:nth-child(4){--tilt:1.4deg; background:var(--note-green);}
+    .note:hover{transform:rotate(0deg) translateY(-4px); box-shadow:var(--shadow-md); z-index:2;}
+    .note::before{ /* pushpin */
+      content:""; position:absolute; top:-7px; left:50%; transform:translateX(-50%);
+      width:13px; height:13px; border-radius:50%;
+      background:radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--stamp) 70%, white), var(--stamp));
+      box-shadow:0 3px 4px rgba(0,0,0,.28);
+    }
+    .note h3{font-size:1.06rem; line-height:1.3; margin-bottom:8px; color:inherit;}
+    .note p{font-size:.9rem; color:inherit; opacity:.75; margin:0; flex:1;}
+    .note .readmark{margin-top:14px; font-size:.82rem; font-weight:700; color:var(--ballpoint);}
+    @media (prefers-color-scheme: dark){ .note .readmark{color:var(--ballpoint);} }
+    .notes-foot{text-align:center; margin-top:30px;}
+
+    /* ---------- fine print ---------- */
+    .fineprint{
+      border:1.5px dashed var(--rule); border-radius:var(--r-md); background:var(--card);
+      padding:24px 28px; max-width:820px;
+    }
+    .fineprint h3{font-size:1rem; margin-bottom:6px;}
+    .fineprint p{font-size:.9rem; margin:0;}
+
+    /* ---------- footer : colophon ---------- */
+    footer{background:var(--band); color:var(--band-soft); margin-top:56px;}
+    .footer-inner{
+      max-width:var(--wrap); margin:0 auto; padding:52px 24px 26px;
+      display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px;
+    }
     @media (max-width:760px){ .footer-inner{grid-template-columns:1fr 1fr;} }
-    footer .brand span{color:#f2ecdc;}
-    footer h4{color:#8fa0b8; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; margin:0 0 14px;}
+    footer .brand span{color:var(--band-ink);}
+    footer h4{color:var(--band-soft); font-size:.76rem; letter-spacing:.12em; text-transform:uppercase; margin:0 0 14px;}
     footer ul{list-style:none; margin:0; padding:0;}
     footer li{margin-bottom:10px;}
-    footer a{color:#dfe4ec; text-decoration:none; font-size:.92rem;}
-    footer a:hover{color:#fff;}
-    footer p.about{color:#9aa6b8; font-size:.9rem; max-width:32ch;}
-    .footer-bottom{border-top:1px solid #23324a; margin-top:8px;}
-    .footer-bottom-inner{max-width:var(--wrap); margin:0 auto; padding:18px 24px; display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between; font-size:.82rem; color:#8391a5;}
+    footer a{color:var(--band-ink); text-decoration:none; font-size:.92rem;}
+    footer a:hover{text-decoration:underline; text-underline-offset:3px;}
+    footer p.about{font-size:.9rem; max-width:34ch; color:var(--band-soft);}
+    .footer-bottom{border-top:1px solid color-mix(in srgb, var(--band-soft) 25%, transparent);}
+    .footer-bottom-inner{
+      max-width:var(--wrap); margin:0 auto; padding:18px 24px;
+      display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between;
+      font-size:.82rem;
+    }
   </style>
 </head>
 <body>
+  <a class="skip" href="#catalog">Skip to the catalog</a>
 
   <header class="topbar">
     <div class="topbar-inner">
@@ -278,166 +428,228 @@
         <img src="logo.png" alt="BrightOwlGoods owl logo" />
         <span>Bright<em>Owl</em>Goods</span>
       </a>
-      <nav class="links">
-        <a class="navlink" href="#shop">Shop</a>
-        <a class="navlink" href="#guides">Guides</a>
+      <nav class="links" aria-label="Main">
+        <a class="navlink" href="#catalog">Catalog</a>
+        <a class="navlink" href="#notes">Free notes</a>
         <a class="navlink" href="blog/index.html">Blog</a>
         <a class="btn primary small" href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">Shop on Etsy</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="top">
+  <main id="top">
+    <!-- ================= HERO : the desk ================= -->
+    <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-text">
-          <p class="eyebrow">Independent Etsy shop</p>
-          <h1>Study guides, planners &amp; gifts for people getting things done.</h1>
-          <p class="lead">BrightOwlGoods designs no-fluff digital study guides and printables for nursing &amp; allied-health students, plus print-on-demand mugs, totes and gifts — made by a small shop, not a factory catalog.</p>
+          <p class="eyebrow">An independent Etsy shop · run by actual humans</p>
+          <h1>Neat pages for <span class="hl">messy weeks</span>.</h1>
+          <p class="lead">Study guides for nursing school, planners for weddings and households, and gifts that survive the group chat — designed one page at a time by a small shop, not a factory catalog.</p>
           <div class="hero-ctas">
-            <a class="btn primary" href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">Shop on Etsy →</a>
-            <a class="btn ghost" href="#shop">See our products</a>
+            <a class="btn primary" href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">Browse the Etsy shop</a>
+            <a class="btn ghost" href="#catalog">Flip through the catalog</a>
           </div>
-          <div class="hero-facts">
-            <span>30+ digital guides</span>
-            <span>Instant download</span>
-            <span>Made-to-order gifts</span>
+          <ul class="hero-facts">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg>30+ digital guides</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg>Instant download</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg>Gifts printed to order</li>
+          </ul>
+        </div>
+        <div class="pile">
+          <div class="sheet s1"><img src="images/product-anatomy-physiology.jpg" alt="" aria-hidden="true" /></div>
+          <div class="sheet s2"><img src="images/product-graduation-mug.jpg" alt="" aria-hidden="true" /></div>
+          <div class="sheet s3"><img src="images/product-planter-pot-stl.jpg" alt="" aria-hidden="true" /></div>
+          <a class="note-new" href="https://www.etsy.com/listing/4537680356/" target="_blank" rel="noopener">
+            <small>New this week</small>
+            ADHD-friendly Teacher Planner — just landed on Etsy →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CATALOG : the binder (signature) ================= -->
+    <section id="catalog">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">The catalog</p>
+          <h2>Everything, filed under its tab.</h2>
+          <p>Real listings, straight from our Etsy shop — organized the way our binders are. Pick a tab.</p>
+        </div>
+
+        <div class="folder reveal">
+          <div class="folder-tabs" role="group" aria-label="Filter the catalog by category">
+            <button type="button" data-filter="all" aria-pressed="true">Everything <span class="count">10</span></button>
+            <button type="button" data-filter="guides" aria-pressed="false">Study guides <span class="count">3</span></button>
+            <button type="button" data-filter="teachers" aria-pressed="false">Teachers <span class="count">1</span></button>
+            <button type="button" data-filter="home" aria-pressed="false">Home &amp; budget <span class="count">2</span></button>
+            <button type="button" data-filter="weddings" aria-pressed="false">Weddings <span class="count">1</span></button>
+            <button type="button" data-filter="gifts" aria-pressed="false">Gifts <span class="count">2</span></button>
+            <button type="button" data-filter="print3d" aria-pressed="false">3D printing <span class="count">1</span></button>
+          </div>
+
+          <div class="folder-body">
+            <p class="filter-status" role="status" aria-live="polite"></p>
+            <div class="product-grid">
+
+              <a class="p-card" data-cat="guides" href="https://www.etsy.com/listing/4526724828/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-anatomy-physiology.jpg" alt="Anatomy and Physiology Mega Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Anatomy &amp; Physiology Mega Bundle, Vol. 1 &amp; 2</h3>
+                <div class="row"><span class="price">$17.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card" data-cat="guides" href="https://www.etsy.com/listing/4532397785/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-vet-tech.jpg" alt="Vet Tech Mega Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Vet Tech Mega Study Guide, All 9 VTNE Domains</h3>
+                <div class="row"><span class="price">$24.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card" data-cat="guides" href="https://www.etsy.com/listing/4534522847/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-pmhnp.jpg" alt="PMHNP Exam Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>PMHNP Exam Study Guide, Psych NP Board Review</h3>
+                <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card" data-cat="teachers" href="https://www.etsy.com/listing/4537680356/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-adhd-teacher-planner.jpg" alt="ADHD-friendly Teacher Planner cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · Word + PDF</span>
+                <h3>ADHD-Friendly Teacher Planner, Lesson Prep &amp; Grading</h3>
+                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card" data-cat="home" href="https://www.etsy.com/listing/4522799214/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-home-management.jpg" alt="Home Management Binder cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>Home Management Binder, Full Household Planner</h3>
+                <div class="row"><span class="price">$15.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card" data-cat="home" href="https://www.etsy.com/listing/4521232016/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-budget-spreadsheet.jpg" alt="Budget Spreadsheet for Excel and Google Sheets" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Spreadsheet</span>
+                <h3>Budget Spreadsheet, Excel &amp; Google Sheets</h3>
+                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card" data-cat="weddings" href="https://www.etsy.com/listing/4521228701/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-wedding-planner.jpg" alt="Wedding Planner Checklist cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>Wedding Planner Checklist &amp; Budget Tracker</h3>
+                <div class="row"><span class="price">$7.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card" data-cat="gifts" href="https://www.etsy.com/listing/4531090730/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-graduation-mug.jpg" alt="One Degree Later graduation mug" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ceramic mug</span>
+                <h3>"One Degree Later" Graduation Mug, Class of 2026</h3>
+                <div class="row"><span class="price">$10.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card" data-cat="gifts" href="https://www.etsy.com/listing/4526683609/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-nurse-tote.jpg" alt="Nurses Call the Shots canvas tote bag" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Canvas tote</span>
+                <h3>"Nurses Call the Shots" Tote Bag</h3>
+                <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card" data-cat="print3d" href="https://www.etsy.com/listing/4534625485/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" src="images/product-planter-pot-stl.jpg" alt="Planter pot 3D print file with succulent" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Planter Pot STL, Succulent Pot + Matching Saucer</h3>
+                <div class="row"><span class="price">$3.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+            </div>
+            <p class="empty-drawer">Nothing filed under this tab yet — the owl is still stamping new pages. <a href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">See the full shop on Etsy</a>.</p>
+            <div class="catalog-foot">
+              <a class="btn ghost" href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">See all 60+ listings on Etsy →</a>
+            </div>
           </div>
         </div>
-        <div class="collage" aria-hidden="true">
-          <img class="c1" src="images/product-anatomy-physiology.jpg" alt="" />
-          <img class="c2" src="images/product-graduation-mug.jpg" alt="" />
-          <img class="c3" src="images/product-planter-pot-stl.jpg" alt="" />
-        </div>
       </div>
     </section>
 
-    <section class="pillars">
-      <div class="wrap pillar-grid">
-        <div class="pillar reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
-          <h3>Digital study guides &amp; printables</h3>
-          <p>Color-coded cheat sheets, planners and templates for nursing school, allied-health exams and everyday life — download instantly, print at home or study from your phone.</p>
-        </div>
-        <div class="pillar gold reveal" style="--rd:.08s">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-3.17A3 3 0 0 0 17 5.5 3.5 3.5 0 0 0 13.5 2c-1.4 0-2.6.83-3.16 2.02A3.5 3.5 0 0 0 7 5.5 3 3 0 0 0 7.17 7H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1z"/><path d="M12 7v15M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/></svg></div>
-          <h3>Print-on-demand gifts</h3>
-          <p>Mugs, tote bags, ornaments and 3D-printed planters designed in-house and made to order — for nurses, teachers, plant people and everyone in between.</p>
-        </div>
+    <!-- ================= INK BAND : why us ================= -->
+    <section class="band">
+      <div class="wrap band-grid">
+        <div><h3>Instant download</h3><p>PDFs land in your inbox seconds after checkout — no waiting on shipping.</p></div>
+        <div><h3>Printed to order</h3><p>Every mug, tote and ornament is made only once it's ordered.</p></div>
+        <div><h3>One actual human</h3><p>Designed and run independently — not a reseller catalog.</p></div>
+        <div><h3>New pages, often</h3><p>New guides and gifts get added every few weeks.</p></div>
       </div>
     </section>
 
-    <section id="shop">
+    <!-- ================= NOTES WALL : free guides ================= -->
+    <section id="notes">
       <div class="wrap">
-        <div class="section-head center reveal">
-          <p class="eyebrow">From the shop</p>
-          <h2>What's on the shelf right now</h2>
-          <p>A cross-section of what we make — real listings, straight from our Etsy shop.</p>
+        <div class="section-head reveal">
+          <p class="eyebrow">Free study notes</p>
+          <h2>Pinned for you — no checkout required.</h2>
+          <p>No-fluff exam guides written at the same desk as the paid stuff.</p>
         </div>
-        <div class="product-grid">
-
-          <a class="p-card reveal" style="--rd:0s" href="https://www.etsy.com/listing/4526724828/" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="images/product-anatomy-physiology.jpg" alt="Anatomy &amp; Physiology Mega Bundle cover" /></div>
-            <div class="body"><p class="cat">Study Guide · Digital PDF</p><h3>Anatomy &amp; Physiology Mega Bundle, Vol. 1 &amp; 2</h3>
-              <div class="row"><span class="price">$17.99</span><span class="view">View on Etsy →</span></div></div>
-          </a>
-
-          <a class="p-card reveal" style="--rd:.05s" href="https://www.etsy.com/listing/4532397785/" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="images/product-vet-tech.jpg" alt="Vet Tech Mega Study Guide cover" /></div>
-            <div class="body"><p class="cat">Study Guide · Digital PDF</p><h3>Vet Tech Mega Study Guide, All 9 VTNE Domains</h3>
-              <div class="row"><span class="price">$24.99</span><span class="view">View on Etsy →</span></div></div>
-          </a>
-
-          <a class="p-card reveal" style="--rd:.1s" href="https://www.etsy.com/listing/4534522847/" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="images/product-pmhnp.jpg" alt="PMHNP Exam Study Guide cover" /></div>
-            <div class="body"><p class="cat">Study Guide · Digital PDF</p><h3>PMHNP Exam Study Guide, Psych NP Board Review</h3>
-              <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div></div>
-          </a>
-
-          <a class="p-card reveal" style="--rd:.15s" href="https://www.etsy.com/listing/4522799214/" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="images/product-home-management.jpg" alt="Home Management Binder cover" /></div>
-            <div class="body"><p class="cat">Planner · Digital PDF</p><h3>Home Management Binder, Full Household Planner</h3>
-              <div class="row"><span class="price">$15.49</span><span class="view">View on Etsy →</span></div></div>
-          </a>
-
-          <a class="p-card reveal" style="--rd:0s" href="https://www.etsy.com/listing/4521228701/" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="images/product-wedding-planner.jpg" alt="Wedding Planner Checklist cover" /></div>
-            <div class="body"><p class="cat">Planner · Digital PDF</p><h3>Wedding Planner Checklist &amp; Budget Tracker</h3>
-              <div class="row"><span class="price">$7.99</span><span class="view">View on Etsy →</span></div></div>
-          </a>
-
-          <a class="p-card reveal" style="--rd:.05s" href="https://www.etsy.com/listing/4521232016/" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="images/product-budget-spreadsheet.jpg" alt="Budget Spreadsheet cover" /></div>
-            <div class="body"><p class="cat">Planner · Digital Spreadsheet</p><h3>Budget Spreadsheet, Excel &amp; Google Sheets</h3>
-              <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div></div>
-          </a>
-
-          <a class="p-card reveal" style="--rd:.1s" href="https://www.etsy.com/listing/4534625485/" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="images/product-planter-pot-stl.jpg" alt="Planter Pot STL 3D print file, succulent pot" /></div>
-            <div class="body"><p class="cat">3D Print Files · STL</p><h3>Planter Pot STL, Succulent Pot + Matching Saucer</h3>
-              <div class="row"><span class="price">$3.99</span><span class="view">View on Etsy →</span></div></div>
-          </a>
-
-          <a class="p-card reveal" style="--rd:.15s" href="https://www.etsy.com/listing/4531090730/" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="images/product-graduation-mug.jpg" alt="One Degree Later graduation mug" /></div>
-            <div class="body"><p class="cat">Gift · Ceramic Mug</p><h3>"One Degree Later" Graduation Mug, Class of 2026</h3>
-              <div class="row"><span class="price">$10.99</span><span class="view">View on Etsy →</span></div></div>
-          </a>
-
-          <a class="p-card reveal" style="--rd:.2s" href="https://www.etsy.com/listing/4526683609/" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="images/product-nurse-tote.jpg" alt="Nurses Call the Shots canvas tote bag" /></div>
-            <div class="body"><p class="cat">Gift · Canvas Tote</p><h3>"Nurses Call the Shots" Tote Bag</h3>
-              <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div></div>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="trust">
-      <div class="trust-inner">
-        <div class="trust-grid">
-          <div class="reveal" style="--rd:0s"><h3>Instant download</h3><p>PDFs land in your inbox seconds after checkout — no waiting on shipping.</p></div>
-          <div class="reveal" style="--rd:.06s"><h3>Made to order</h3><p>Every mug, tote and ornament is printed only once it's ordered.</p></div>
-          <div class="reveal" style="--rd:.12s"><h3>One small shop</h3><p>Designed and run independently — not a reseller catalog.</p></div>
-          <div class="reveal" style="--rd:.18s"><h3>New drops regularly</h3><p>We add new guides and gifts every few weeks.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="guides">
-      <div class="wrap">
-        <div class="section-head center reveal">
-          <p class="eyebrow">Free resources</p>
-          <h2>Study tips &amp; exam guides</h2>
-          <p>No-fluff guides to help you pass your exam, plus the printable cheat sheets that make it easier.</p>
-        </div>
-        <div class="blog-grid">
-          <a class="b-card reveal" style="--rd:0s" href="blog/how-to-pass-cpc-exam.html">
-            <h3>How to Pass the CPC Medical Coding Exam</h3>
-            <p>A clear, 10-step study plan for the AAPC CPC exam.</p>
-          </a>
-          <a class="b-card reveal" style="--rd:.05s" href="blog/nclex-study-tips.html">
+        <div class="notes-grid reveal">
+          <a class="note" href="blog/nclex-study-tips.html">
             <h3>How to Study for the NCLEX</h3>
             <p>High-yield topics and free strategies that won't burn you out.</p>
+            <span class="readmark">Read the note →</span>
           </a>
-          <a class="b-card reveal" style="--rd:.1s" href="blog/aswb-social-work-exam.html">
+          <a class="note" href="blog/how-to-pass-cpc-exam.html">
+            <h3>How to Pass the CPC Medical Coding Exam</h3>
+            <p>A clear, 10-step study plan for the AAPC CPC exam.</p>
+            <span class="readmark">Read the note →</span>
+          </a>
+          <a class="note" href="blog/aswb-social-work-exam.html">
             <h3>How to Pass the ASWB Social Work Exam</h3>
             <p>The "ASWB way" of answering, for LMSW &amp; LCSW candidates.</p>
+            <span class="readmark">Read the note →</span>
           </a>
-          <a class="b-card reveal" style="--rd:.15s" href="blog/funny-nurse-gift-ideas.html">
+          <a class="note" href="blog/funny-nurse-gift-ideas.html">
             <h3>15 Funny Nurse Gift Ideas They'll Actually Love</h3>
             <p>Practical, affordable picks for nurse week or graduation.</p>
+            <span class="readmark">Read the note →</span>
           </a>
         </div>
-        <div class="blog-more"><a class="btn ghost small" href="blog/index.html">Read all articles →</a></div>
+        <div class="notes-foot"><a class="btn ghost small" href="blog/index.html">Read all articles →</a></div>
       </div>
     </section>
 
+    <!-- ================= FINE PRINT ================= -->
     <section>
       <div class="wrap">
-        <div class="disclosure reveal">
-          <h3>Our Pinterest tool</h3>
+        <div class="fineprint reveal">
+          <h3>The fine print: our Pinterest tool</h3>
           <p>We use an in-house application that connects to the Pinterest API to publish Pins of our own products to our own Pinterest boards. If you connect a Pinterest account to this tool, read how we handle your data in our <a href="privacy.html">Privacy Policy</a>.</p>
         </div>
       </div>
@@ -448,19 +660,19 @@
     <div class="footer-inner">
       <div>
         <a class="brand" href="#top"><img src="logo.png" alt="BrightOwlGoods owl logo" /><span>Bright<em>Owl</em>Goods</span></a>
-        <p class="about">Digital study guides, planners and print-on-demand gifts, designed by an independent Etsy shop.</p>
+        <p class="about">Digital study guides, planners and made-to-order gifts, designed at one small desk.</p>
       </div>
       <div>
         <h4>Shop</h4>
         <ul>
           <li><a href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">Etsy shop</a></li>
-          <li><a href="#shop">Featured products</a></li>
+          <li><a href="#catalog">The catalog</a></li>
         </ul>
       </div>
       <div>
         <h4>Explore</h4>
         <ul>
-          <li><a href="#guides">Study guides &amp; tips</a></li>
+          <li><a href="#notes">Free study notes</a></li>
           <li><a href="blog/index.html">Blog</a></li>
         </ul>
       </div>
@@ -483,27 +695,51 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // sticky header shadow once the page has scrolled
+    // ledger header: shadow once the page has scrolled
     const topbar = document.querySelector('header.topbar');
     const onScroll = () => topbar.classList.toggle('scrolled', window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // scroll-reveal: fade + rise elements into view as they enter the viewport
+    // section reveals (headers and grouped blocks only)
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window && revealEls.length) {
       const io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
+          if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
       revealEls.forEach((el) => io.observe(el));
     } else {
       revealEls.forEach((el) => el.classList.add('is-visible'));
     }
+
+    // the binder tabs: file the catalog by category
+    const tabs = document.querySelectorAll('.folder-tabs button');
+    const cards = document.querySelectorAll('.p-card');
+    const status = document.querySelector('.filter-status');
+    const emptyDrawer = document.querySelector('.empty-drawer');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.filter;
+        tabs.forEach((t) => t.setAttribute('aria-pressed', String(t === tab)));
+        let shown = 0;
+        cards.forEach((card) => {
+          const match = filter === 'all' || card.dataset.cat === filter;
+          card.hidden = !match;
+          card.classList.remove('enter');
+          if (match) { shown++; void card.offsetWidth; card.classList.add('enter'); }
+        });
+        emptyDrawer.classList.toggle('show', shown === 0);
+        const label = tab.textContent.replace(/\d+\s*$/, '').trim();
+        status.textContent = shown + (shown === 1 ? ' item filed under ' : ' items filed under ') + label + '.';
+      });
+    });
+
+    // image failure: authored fallback instead of a broken icon
+    document.querySelectorAll('.p-card .thumb img').forEach((img) => {
+      img.addEventListener('error', () => img.closest('.thumb').classList.add('is-missing'));
+    });
   </script>
 </body>
 </html>
