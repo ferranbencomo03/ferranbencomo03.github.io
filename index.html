@@ -350,6 +350,10 @@
     .empty-drawer{display:none; text-align:center; padding:40px 20px; color:var(--ink-soft); font-weight:700;}
     .empty-drawer.show{display:block;}
     .catalog-foot{text-align:center; margin-top:30px;}
+    .alt-shop{margin:14px auto 0; max-width:56ch; font-size:.9rem;}
+    .alt-shop a{color:var(--ballpoint); font-weight:700; text-decoration:none; border-bottom:1px solid transparent; transition:border-color var(--dur-fast) var(--ease-out);}
+    .alt-shop a:hover,.alt-shop a:focus-visible{border-bottom-color:var(--ballpoint);}
+    .alt-shop a:focus-visible{outline:2px solid var(--ballpoint); outline-offset:3px; border-radius:var(--r-sm);}
 
     /* ---------- ink band : why us ---------- */
     .band{background:var(--band); color:var(--band-ink); padding:52px 0;}
@@ -595,6 +599,7 @@
             <p class="empty-drawer">Nothing filed under this tab yet — the owl is still stamping new pages. <a href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">See the full shop on Etsy</a>.</p>
             <div class="catalog-foot">
               <a class="btn ghost" href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">See all 60+ listings on Etsy →</a>
+              <p class="alt-shop">Rather skip the Etsy account? A growing set of our digital guides and planners also lives on <a href="https://brightowlgoods.gumroad.com" target="_blank" rel="noopener">our Gumroad shop</a>: same files, instant download.</p>
             </div>
           </div>
         </div>
@@ -666,6 +671,7 @@
         <h4>Shop</h4>
         <ul>
           <li><a href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">Etsy shop</a></li>
+          <li><a href="https://brightowlgoods.gumroad.com" target="_blank" rel="noopener">Gumroad shop</a></li>
           <li><a href="#catalog">The catalog</a></li>
         </ul>
       </div>
