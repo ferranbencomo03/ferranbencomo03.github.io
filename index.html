@@ -346,6 +346,10 @@
     @media (prefers-reduced-motion:no-preference){
       .p-card.enter{animation:cardSettle var(--dur-base) var(--ease-settle) both;}
       @keyframes cardSettle{from{opacity:0; transform:translateY(14px) rotate(0deg);}}
+      /* staggered reveal as the catalog scrolls into view */
+      .js .reveal-card{opacity:0; transform:translateY(22px);}
+      .js .reveal-card.in{opacity:1; transform:none;
+        transition:opacity .5s var(--ease-out), transform .6s var(--ease-settle);}
     }
     .empty-drawer{display:none; text-align:center; padding:40px 20px; color:var(--ink-soft); font-weight:700;}
     .empty-drawer.show{display:block;}
@@ -477,128 +481,848 @@
         <div class="section-head reveal">
           <p class="eyebrow">The catalog</p>
           <h2>Everything, filed under its tab.</h2>
-          <p>Real listings, straight from our Etsy shop — organized the way our binders are. Pick a tab.</p>
+          <p>All 82 live listings, straight from our Etsy shop, organized the way our binders are. Pick a tab.</p>
         </div>
 
         <div class="folder reveal">
           <div class="folder-tabs" role="group" aria-label="Filter the catalog by category">
-            <button type="button" data-filter="all" aria-pressed="true">Everything <span class="count">10</span></button>
-            <button type="button" data-filter="guides" aria-pressed="false">Study guides <span class="count">3</span></button>
-            <button type="button" data-filter="teachers" aria-pressed="false">Teachers <span class="count">1</span></button>
-            <button type="button" data-filter="home" aria-pressed="false">Home &amp; budget <span class="count">2</span></button>
+            <button type="button" data-filter="all" aria-pressed="true">Everything <span class="count">82</span></button>
+            <button type="button" data-filter="guides" aria-pressed="false">Study guides <span class="count">44</span></button>
+            <button type="button" data-filter="teachers" aria-pressed="false">Teachers <span class="count">3</span></button>
+            <button type="button" data-filter="home" aria-pressed="false">Home &amp; budget <span class="count">7</span></button>
             <button type="button" data-filter="weddings" aria-pressed="false">Weddings <span class="count">1</span></button>
-            <button type="button" data-filter="gifts" aria-pressed="false">Gifts <span class="count">2</span></button>
-            <button type="button" data-filter="print3d" aria-pressed="false">3D printing <span class="count">1</span></button>
+            <button type="button" data-filter="gifts" aria-pressed="false">Gifts <span class="count">14</span></button>
+            <button type="button" data-filter="print3d" aria-pressed="false">3D printing <span class="count">13</span></button>
           </div>
 
           <div class="folder-body">
             <p class="filter-status" role="status" aria-live="polite"></p>
             <div class="product-grid">
 
-              <a class="p-card" data-cat="guides" href="https://www.etsy.com/listing/4526724828/" target="_blank" rel="noopener">
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4532397785/" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img loading="lazy" src="images/product-anatomy-physiology.jpg" alt="Anatomy and Physiology Mega Bundle cover" />
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4532397785.jpg" alt="Vet Tech Mega Study Guide cover" />
                   <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
                 </div>
                 <span class="stampline">Study guide · PDF</span>
-                <h3>Anatomy &amp; Physiology Mega Bundle, Vol. 1 &amp; 2</h3>
-                <div class="row"><span class="price">$17.99</span><span class="view">View on Etsy →</span></div>
+                <h3>Vet Tech Mega Study Guide</h3>
+                <div class="row"><span class="price">$27.99</span><span class="view">View on Etsy →</span></div>
               </a>
 
-              <a class="p-card" data-cat="guides" href="https://www.etsy.com/listing/4532397785/" target="_blank" rel="noopener">
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4524977357/" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img loading="lazy" src="images/product-vet-tech.jpg" alt="Vet Tech Mega Study Guide cover" />
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4524977357.jpg" alt="Nursing School Mega Bundle cover" />
                   <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
                 </div>
                 <span class="stampline">Study guide · PDF</span>
-                <h3>Vet Tech Mega Study Guide, All 9 VTNE Domains</h3>
+                <h3>Nursing School Mega Bundle</h3>
                 <div class="row"><span class="price">$24.99</span><span class="view">View on Etsy →</span></div>
               </a>
 
-              <a class="p-card" data-cat="guides" href="https://www.etsy.com/listing/4534522847/" target="_blank" rel="noopener">
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4541414522/" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img loading="lazy" src="images/product-pmhnp.jpg" alt="PMHNP Exam Study Guide cover" />
-                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
-                </div>
-                <span class="stampline">Study guide · PDF</span>
-                <h3>PMHNP Exam Study Guide, Psych NP Board Review</h3>
-                <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div>
-              </a>
-
-              <a class="p-card" data-cat="teachers" href="https://www.etsy.com/listing/4537680356/" target="_blank" rel="noopener">
-                <div class="thumb">
-                  <img loading="lazy" src="images/product-adhd-teacher-planner.jpg" alt="ADHD-friendly Teacher Planner cover" />
-                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
-                </div>
-                <span class="stampline">Planner · Word + PDF</span>
-                <h3>ADHD-Friendly Teacher Planner, Lesson Prep &amp; Grading</h3>
-                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
-              </a>
-
-              <a class="p-card" data-cat="home" href="https://www.etsy.com/listing/4522799214/" target="_blank" rel="noopener">
-                <div class="thumb">
-                  <img loading="lazy" src="images/product-home-management.jpg" alt="Home Management Binder cover" />
-                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
-                </div>
-                <span class="stampline">Planner · PDF</span>
-                <h3>Home Management Binder, Full Household Planner</h3>
-                <div class="row"><span class="price">$15.49</span><span class="view">View on Etsy →</span></div>
-              </a>
-
-              <a class="p-card" data-cat="home" href="https://www.etsy.com/listing/4521232016/" target="_blank" rel="noopener">
-                <div class="thumb">
-                  <img loading="lazy" src="images/product-budget-spreadsheet.jpg" alt="Budget Spreadsheet for Excel and Google Sheets" />
-                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
-                </div>
-                <span class="stampline">Spreadsheet</span>
-                <h3>Budget Spreadsheet, Excel &amp; Google Sheets</h3>
-                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
-              </a>
-
-              <a class="p-card" data-cat="weddings" href="https://www.etsy.com/listing/4521228701/" target="_blank" rel="noopener">
-                <div class="thumb">
-                  <img loading="lazy" src="images/product-wedding-planner.jpg" alt="Wedding Planner Checklist cover" />
-                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
-                </div>
-                <span class="stampline">Planner · PDF</span>
-                <h3>Wedding Planner Checklist &amp; Budget Tracker</h3>
-                <div class="row"><span class="price">$7.99</span><span class="view">View on Etsy →</span></div>
-              </a>
-
-              <a class="p-card" data-cat="gifts" href="https://www.etsy.com/listing/4531090730/" target="_blank" rel="noopener">
-                <div class="thumb">
-                  <img loading="lazy" src="images/product-graduation-mug.jpg" alt="One Degree Later graduation mug" />
-                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
-                </div>
-                <span class="stampline">Gift · Ceramic mug</span>
-                <h3>"One Degree Later" Graduation Mug, Class of 2026</h3>
-                <div class="row"><span class="price">$10.99</span><span class="view">View on Etsy →</span></div>
-              </a>
-
-              <a class="p-card" data-cat="gifts" href="https://www.etsy.com/listing/4526683609/" target="_blank" rel="noopener">
-                <div class="thumb">
-                  <img loading="lazy" src="images/product-nurse-tote.jpg" alt="Nurses Call the Shots canvas tote bag" />
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4541414522.jpg" alt="Social Work Is My Jam Tote Bag cover" />
                   <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
                 </div>
                 <span class="stampline">Gift · Canvas tote</span>
-                <h3>"Nurses Call the Shots" Tote Bag</h3>
+                <h3>Social Work Is My Jam Tote Bag</h3>
+                <div class="row"><span class="price">$20.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4528356225/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4528356225.jpg" alt="Medical Coding Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Medical Coding Study Guide</h3>
+                <div class="row"><span class="price">$20.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4531090730/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4531090730.jpg" alt="Graduation Mug cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ceramic mug</span>
+                <h3>Graduation Mug</h3>
+                <div class="row"><span class="price">$17.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4526683553/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4526683553.jpg" alt="Aloe You Vera Much Mug cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ceramic mug</span>
+                <h3>Aloe You Vera Much Mug</h3>
+                <div class="row"><span class="price">$17.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4526025065/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4526025065.jpg" alt="Funny Realtor Mug cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ceramic mug</span>
+                <h3>Funny Realtor Mug</h3>
+                <div class="row"><span class="price">$17.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4525427947/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4525427947.jpg" alt="Succulent Cactus Mug cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ceramic mug</span>
+                <h3>Succulent Cactus Mug</h3>
+                <div class="row"><span class="price">$17.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4525095914/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4525095914.jpg" alt="Teacher Fuel Coffee Mug cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ceramic mug</span>
+                <h3>Teacher Fuel Coffee Mug</h3>
+                <div class="row"><span class="price">$17.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4528353216/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4528353216.jpg" alt="Funny Nurse Mouse Pad cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Mouse pad</span>
+                <h3>Funny Nurse Mouse Pad</h3>
+                <div class="row"><span class="price">$16.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4527835428/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4527835428.jpg" alt="Funny Nurse Mouse Pad cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Mouse pad</span>
+                <h3>Funny Nurse Mouse Pad</h3>
+                <div class="row"><span class="price">$16.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="home" href="https://www.etsy.com/listing/4521232016/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4521232016.jpg" alt="Budget Spreadsheet for Excel and Google Sheets cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Spreadsheet · Excel</span>
+                <h3>Budget Spreadsheet for Excel and Google Sheets</h3>
+                <div class="row"><span class="price">$16.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4527454144/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4527454144.jpg" alt="Social Work Exam Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Social Work Exam Study Guide</h3>
+                <div class="row"><span class="price">$16.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4526724828/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4526724828.jpg" alt="Anatomy and Physiology Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Anatomy and Physiology Bundle</h3>
+                <div class="row"><span class="price">$16.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4534522847/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4534522847.jpg" alt="PMHNP Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>PMHNP Study Guide</h3>
+                <div class="row"><span class="price">$15.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="home" href="https://www.etsy.com/listing/4522799214/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4522799214.jpg" alt="Home Management Binder Printable cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Binder · PDF</span>
+                <h3>Home Management Binder Printable</h3>
+                <div class="row"><span class="price">$15.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4541413876/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4541413876.jpg" alt="Financial Advisor Client Onboarding Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Financial Advisor Client Onboarding Bundle</h3>
+                <div class="row"><span class="price">$14.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4531086614/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4531086614.jpg" alt="Nurse Christmas Ornament cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ornament</span>
+                <h3>Nurse Christmas Ornament</h3>
+                <div class="row"><span class="price">$14.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4531086384/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4531086384.jpg" alt="Funny Nurse Christmas Ornament cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ornament</span>
+                <h3>Funny Nurse Christmas Ornament</h3>
+                <div class="row"><span class="price">$14.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4536087326/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4536087326.jpg" alt="NBCOT Study Guide + 32 Practice Questions &amp; 12… cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>NBCOT Study Guide + 32 Practice Questions &amp; 12…</h3>
+                <div class="row"><span class="price">$14.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4542845046/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4542845046.jpg" alt="Nurse OS Notion Template cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>Nurse OS Notion Template</h3>
                 <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div>
               </a>
 
-              <a class="p-card" data-cat="print3d" href="https://www.etsy.com/listing/4534625485/" target="_blank" rel="noopener">
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4528768821/" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img loading="lazy" src="images/product-planter-pot-stl.jpg" alt="Planter pot 3D print file with succulent" />
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4528768821.jpg" alt="Pharmacy Technician Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Pharmacy Technician Study Guide</h3>
+                <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4526683609/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4526683609.jpg" alt="Funny Nurse Tote Bag cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Canvas tote</span>
+                <h3>Funny Nurse Tote Bag</h3>
+                <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4525111466/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4525111466.jpg" alt="Teacher Life Tote Bag cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Canvas tote</span>
+                <h3>Teacher Life Tote Bag</h3>
+                <div class="row"><span class="price">$13.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4533902227/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4533902227.jpg" alt="Dental Hygienist Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>Dental Hygienist Study Guide</h3>
+                <div class="row"><span class="price">$12.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4527454320/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4527454320.jpg" alt="HESI A2 and TEAS Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>HESI A2 and TEAS Study Guide</h3>
+                <div class="row"><span class="price">$12.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="weddings" href="https://www.etsy.com/listing/4539341387/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4539341387.jpg" alt="Complete Wedding Planner Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>Complete Wedding Planner Bundle</h3>
+                <div class="row"><span class="price">$11.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4535296079/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4535296079.jpg" alt="CRCST and CST Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>CRCST and CST Study Guide</h3>
+                <div class="row"><span class="price">$11.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4530020377/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4530020377.jpg" alt="CDL Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>CDL Study Guide</h3>
+                <div class="row"><span class="price">$11.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4532031209/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4532031209.jpg" alt="PTA Exam Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>PTA Exam Study Guide</h3>
+                <div class="row"><span class="price">$10.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4535128615/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4535128615.jpg" alt="CNA Exam Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>CNA Exam Study Guide</h3>
+                <div class="row"><span class="price">$10.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4542623589/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4542623589.jpg" alt="Speech Language Pathology Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Speech Language Pathology Study Guide</h3>
+                <div class="row"><span class="price">$9.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4542635606/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4542635606.jpg" alt="Medical Lab Technician Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Medical Lab Technician Study Guide</h3>
+                <div class="row"><span class="price">$9.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4540814904/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4540814904.jpg" alt="Checkered Wall Art Set cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Wall art · Printable</span>
+                <h3>Checkered Wall Art Set</h3>
+                <div class="row"><span class="price">$8.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4535626477/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4535626477.jpg" alt="Medical Assistant Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Medical Assistant Study Guide</h3>
+                <div class="row"><span class="price">$8.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4529395083/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4529395083.jpg" alt="Medical Terminology Study Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Medical Terminology Study Guide</h3>
+                <div class="row"><span class="price">$8.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4526065414/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4526065414.jpg" alt="Phlebotomy Cheat Sheet cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Phlebotomy Cheat Sheet</h3>
+                <div class="row"><span class="price">$8.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="home" href="https://www.etsy.com/listing/4523404826/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4523404826.jpg" alt="Family Life Binder Printable cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Binder · PDF</span>
+                <h3>Family Life Binder Printable</h3>
+                <div class="row"><span class="price">$8.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4541996672/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4541996672.jpg" alt="Teacher Can Cooler 3D Print Files cover" />
                   <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
                 </div>
                 <span class="stampline">3D print files · STL</span>
-                <h3>Planter Pot STL, Succulent Pot + Matching Saucer</h3>
+                <h3>Teacher Can Cooler 3D Print Files</h3>
+                <div class="row"><span class="price">$8.95</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4539362791/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4539362791.jpg" alt="Soccer Can Cooler 3D Print Files cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Soccer Can Cooler 3D Print Files</h3>
+                <div class="row"><span class="price">$8.95</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4522280380/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4522280380.jpg" alt="Nursing Mnemonics Cheat Sheet cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Nursing Mnemonics Cheat Sheet</h3>
+                <div class="row"><span class="price">$8.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4530920476/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4530920476.jpg" alt="Dad Can Cooler STL Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Dad Can Cooler STL Bundle</h3>
+                <div class="row"><span class="price">$7.59</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4533905599/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4533905599.jpg" alt="OB Nurse Cheat Sheet cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>OB Nurse Cheat Sheet</h3>
+                <div class="row"><span class="price">$7.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4522356924/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4522356924.jpg" alt="Pharmacology Cheat Sheet Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Pharmacology Cheat Sheet Bundle</h3>
+                <div class="row"><span class="price">$7.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4530415255/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4530415255.jpg" alt="Esthetician State Board Exam Guide cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Esthetician State Board Exam Guide</h3>
+                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4538432464/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4538432464.jpg" alt="Postpartum Recovery Journal Printable cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Journal · PDF</span>
+                <h3>Postpartum Recovery Journal Printable</h3>
+                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="teachers" href="https://www.etsy.com/listing/4537680356/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4537680356.jpg" alt="ADHD Teacher Planner Printable cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Binder · PDF</span>
+                <h3>ADHD Teacher Planner Printable</h3>
+                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4536545402/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4536545402.jpg" alt="Fishing Can Cooler 3D Print Files cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Fishing Can Cooler 3D Print Files</h3>
+                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4536545334/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4536545334.jpg" alt="Golf Can Cooler 3D Print Files cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Golf Can Cooler 3D Print Files</h3>
+                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="home" href="https://www.etsy.com/listing/4521048338/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4521048338.jpg" alt="ADHD Cleaning Planner Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>ADHD Cleaning Planner Bundle</h3>
+                <div class="row"><span class="price">$6.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4520942585/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4520942585.jpg" alt="Nursing Resume and Cover Letter cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Résumé · Word</span>
+                <h3>Nursing Resume and Cover Letter</h3>
+                <div class="row"><span class="price">$6.79</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4538432967/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4538432967.jpg" alt="ADHD Daily Planner for Adults Printable cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>ADHD Daily Planner for Adults Printable</h3>
+                <div class="row"><span class="price">$6.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="teachers" href="https://www.etsy.com/listing/4531520687/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4531520687.jpg" alt="School Nurse Binder with IHP and Allergy Action Plan cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Binder · PDF</span>
+                <h3>School Nurse Binder with IHP and Allergy Action Plan</h3>
+                <div class="row"><span class="price">$6.36</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4530414811/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4530414811.jpg" alt="Bride Can Cooler STL Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Bride Can Cooler STL Bundle</h3>
+                <div class="row"><span class="price">$6.00</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="home" href="https://www.etsy.com/listing/4538790785/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4538790785.jpg" alt="Back to School Budget Planner Printable cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>Back to School Budget Planner Printable</h3>
+                <div class="row"><span class="price">$5.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4536094665/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4536094665.jpg" alt="Christmas Can Cooler 3D Print Files cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Christmas Can Cooler 3D Print Files</h3>
+                <div class="row"><span class="price">$5.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4535135375/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4535135375.jpg" alt="Halloween Can Cooler 3D Print Files cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Halloween Can Cooler 3D Print Files</h3>
+                <div class="row"><span class="price">$5.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4532397101/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4532397101.jpg" alt="Head to Toe Assessment Cheat Sheet cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Head to Toe Assessment Cheat Sheet</h3>
+                <div class="row"><span class="price">$5.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4524007908/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4524007908.jpg" alt="Nurse Sublimation PNG Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ceramic mug</span>
+                <h3>Nurse Sublimation PNG Bundle</h3>
+                <div class="row"><span class="price">$5.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4521873633/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4521873633.jpg" alt="Editable Nurse Report Sheet cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Editable Nurse Report Sheet</h3>
+                <div class="row"><span class="price">$5.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4531520953/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4531520953.jpg" alt="Dialysis Nurse Cheat Sheet cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Dialysis Nurse Cheat Sheet</h3>
+                <div class="row"><span class="price">$5.79</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4524571387/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4524571387.jpg" alt="Fluid and Electrolytes Cheat Sheet with Practice… cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Fluid and Electrolytes Cheat Sheet with Practice…</h3>
+                <div class="row"><span class="price">$5.79</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="teachers" href="https://www.etsy.com/listing/4521183314/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4521183314.jpg" alt="Undated Teacher Planner cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Binder · PDF</span>
+                <h3>Undated Teacher Planner</h3>
+                <div class="row"><span class="price">$5.58</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4541996508/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4541996508.jpg" alt="Jewelry Making Inventory Tracker with Wire Gauge… cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>Jewelry Making Inventory Tracker with Wire Gauge…</h3>
+                <div class="row"><span class="price">$5.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4524571489/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4524571489.jpg" alt="Lab Values Cheat Sheet with Practice Questions cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Lab Values Cheat Sheet with Practice Questions</h3>
+                <div class="row"><span class="price">$5.27</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4532840208/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4532840208.jpg" alt="Common Medications Cheat Sheet cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Common Medications Cheat Sheet</h3>
+                <div class="row"><span class="price">$5.00</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4540353494/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4540353494.jpg" alt="5 Generation Family Tree Chart Template cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>5 Generation Family Tree Chart Template</h3>
+                <div class="row"><span class="price">$4.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4539825257/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4539825257.jpg" alt="Sewing Project Planner Printable cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Journal · PDF</span>
+                <h3>Sewing Project Planner Printable</h3>
+                <div class="row"><span class="price">$4.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4538245452/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4538245452.jpg" alt="Spooky Cute Coloring Book cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Coloring book · PDF</span>
+                <h3>Spooky Cute Coloring Book</h3>
+                <div class="row"><span class="price">$4.89</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4532840300/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4532840300.jpg" alt="Nursing Care Plan Template cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Nursing Care Plan Template</h3>
+                <div class="row"><span class="price">$4.80</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4529390209/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4529390209.jpg" alt="RN Can Cooler 3D Print File cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>RN Can Cooler 3D Print File</h3>
+                <div class="row"><span class="price">$4.79</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4528861010/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4528861010.jpg" alt="Nurse Can Cooler 3D Print File cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Nurse Can Cooler 3D Print File</h3>
+                <div class="row"><span class="price">$4.79</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4523988351/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4523988351.jpg" alt="EKG Cheat Sheet cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>EKG Cheat Sheet</h3>
+                <div class="row"><span class="price">$4.74</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4520955575/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4520955575.jpg" alt="Recent Graduate Resume and Cover Letter Template cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Résumé · Word</span>
+                <h3>Recent Graduate Resume and Cover Letter Template</h3>
+                <div class="row"><span class="price">$4.70</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4540798105/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4540798105.jpg" alt="Coffin Earring Holder STL cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Coffin Earring Holder STL</h3>
+                <div class="row"><span class="price">$4.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4540261885/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4540261885.jpg" alt="Crochet &amp; Knitting Project Tracker cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>Crochet &amp; Knitting Project Tracker</h3>
+                <div class="row"><span class="price">$4.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4530909391/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4530909391.jpg" alt="Graduation Can Cooler STL Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Graduation Can Cooler STL Bundle</h3>
+                <div class="row"><span class="price">$4.00</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="print3d" href="https://www.etsy.com/listing/4534625485/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4534625485.jpg" alt="Planter Pot 3D Print Files cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">3D print files · STL</span>
+                <h3>Planter Pot 3D Print Files</h3>
                 <div class="row"><span class="price">$3.99</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="home" href="https://www.etsy.com/listing/4537068704/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4537068704.jpg" alt="Zone Cleaning Planner cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Planner · PDF</span>
+                <h3>Zone Cleaning Planner</h3>
+                <div class="row"><span class="price">$3.49</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="guides" href="https://www.etsy.com/listing/4527828559/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4527828559.jpg" alt="Dosage Calculations Cheat Sheet cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Study guide · PDF</span>
+                <h3>Dosage Calculations Cheat Sheet</h3>
+                <div class="row"><span class="price">$3.29</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="home" href="https://www.etsy.com/listing/4521271958/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4521271958.jpg" alt="Cash Envelope System Printable cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Binder · PDF</span>
+                <h3>Cash Envelope System Printable</h3>
+                <div class="row"><span class="price">$3.19</span><span class="view">View on Etsy →</span></div>
+              </a>
+
+              <a class="p-card reveal-card" data-cat="gifts" href="https://www.etsy.com/listing/4528786253/" target="_blank" rel="noopener">
+                <div class="thumb">
+                  <img loading="lazy" width="520" height="520" src="images/catalog/4528786253.jpg" alt="Nurse Sublimation PNG Bundle cover" />
+                  <div class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="2.4"/><circle cx="15" cy="10" r="2.4"/><path d="M5 20c0-4 2-6 7-6s7 2 7 6M12 3L9 6h6l-3-3z"/></svg>This picture is off at the printers.</div>
+                </div>
+                <span class="stampline">Gift · Ceramic mug</span>
+                <h3>Nurse Sublimation PNG Bundle</h3>
+                <div class="row"><span class="price">$3.12</span><span class="view">View on Etsy →</span></div>
               </a>
 
             </div>
             <p class="empty-drawer">Nothing filed under this tab yet — the owl is still stamping new pages. <a href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">See the full shop on Etsy</a>.</p>
             <div class="catalog-foot">
-              <a class="btn ghost" href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">See all 60+ listings on Etsy →</a>
+              <a class="btn ghost" href="https://www.etsy.com/shop/BrightOwlGoods" target="_blank" rel="noopener">See all 82 listings on Etsy →</a>
               <p class="alt-shop">Rather skip the Etsy account? A growing set of our digital guides and planners also lives on <a href="https://brightowlgoods.gumroad.com" target="_blank" rel="noopener">our Gumroad shop</a>: same files, instant download.</p>
             </div>
           </div>
@@ -728,6 +1452,7 @@
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {
         const filter = tab.dataset.filter;
+        cards.forEach((c) => c.classList.add('in'));
         tabs.forEach((t) => t.setAttribute('aria-pressed', String(t === tab)));
         let shown = 0;
         cards.forEach((card) => {
@@ -746,6 +1471,26 @@
     document.querySelectorAll('.p-card .thumb img').forEach((img) => {
       img.addEventListener('error', () => img.closest('.thumb').classList.add('is-missing'));
     });
+
+    // catalog cards: staggered reveal as they scroll into view
+    const catalogCards = document.querySelectorAll('.reveal-card');
+    if ('IntersectionObserver' in window && catalogCards.length) {
+      let n = 0;
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.transitionDelay = ((n++ % 6) * 55) + 'ms';
+            entry.target.classList.add('in');
+            cio.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      catalogCards.forEach((el) => cio.observe(el));
+      // safety net: never leave a card hidden if the observer never fires
+      setTimeout(() => catalogCards.forEach((el) => el.classList.add('in')), 1600);
+    } else {
+      catalogCards.forEach((el) => el.classList.add('in'));
+    }
   </script>
 </body>
 </html>
